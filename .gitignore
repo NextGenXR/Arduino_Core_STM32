@@ -32,3 +32,6 @@ __pycache__/
 # VisualStudioCode
 .vscode/*
 *.code-workspace
+
+# VisualStudio
+.vs/*
