@@ -90,13 +90,13 @@ Nucleo_144.menu.pnum.NUCLEO_F767ZI.build.variant=STM32F7xx/F765Z(G-I)T_F767Z(G-I
 Nucleo_144.menu.pnum.NUCLEO_F767ZI.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
 
 # NUCLEO_H723ZQ board
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ=Nucleo H72ZQ
+Nucleo_144.menu.pnum.NUCLEO_H723ZQ=Nucleo H723ZQ
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.node=NODE_H723ZQ
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.upload.maximum_size=2097152
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.upload.maximum_data_size=524288
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.mcu=cortex-m7
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.board=NUCLEO_H723ZQ
+Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.board=NUCLEO_H723ZQI
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.series=STM32H7xx
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.product_line=STM32H723xx
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.variant=STM32H7xx/H723Z(E-G)I_H730ZBI_H733ZGI
