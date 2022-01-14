@@ -11,8 +11,7 @@
  *******************************************************************************
  */
 #if defined(ARDUINO_GENERIC_H723ZEIX) || defined(ARDUINO_GENERIC_H723ZGIX) ||\
-    defined(ARDUINO_GENERIC_H730ZBIX) || defined(ARDUINO_GENERIC_H733ZGIX) ||\
-    defined(ARDUINO_NUCLEO_H723ZG)
+    defined(ARDUINO_GENERIC_H730ZBIX) || defined(ARDUINO_GENERIC_H733ZGIX)
 #include "pins_arduino.h"
 
 /**
@@ -75,9 +74,6 @@ WEAK void SystemClock_Config(void)
     }
 }
 
-  /* USER CODE BEGIN 4 */
-
-  /* USER CODE END 4 */
 
   /**
     * @brief  Period elapsed callback in non blocking mode
@@ -89,15 +85,9 @@ WEAK void SystemClock_Config(void)
     */
   void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim)
   {
-    /* USER CODE BEGIN Callback 0 */
-
-    /* USER CODE END Callback 0 */
     if (htim->Instance == TIM23) {
       HAL_IncTick();
     }
-    /* USER CODE BEGIN Callback 1 */
-
-    /* USER CODE END Callback 1 */
   }
 
   /**
@@ -106,13 +96,11 @@ WEAK void SystemClock_Config(void)
     */
   void Error_Handler(void)
   {
-    /* USER CODE BEGIN Error_Handler_Debug */
     /* User can add his own implementation to report the HAL error return state */
     __disable_irq();
     while (1)
     {
     }
-    /* USER CODE END Error_Handler_Debug */
   }
 
 
