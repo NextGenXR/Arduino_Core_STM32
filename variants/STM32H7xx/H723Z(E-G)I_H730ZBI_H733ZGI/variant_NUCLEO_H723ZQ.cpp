@@ -10,157 +10,149 @@
  *
  *******************************************************************************
  */
-#if defined(ARDUINO_NUCLEO_H723ZQI)
+#if defined(ARDUINO_NUCLEO_H723ZQ)
+
+
 #include "pins_arduino.h"
 
 // Digital PinName array
 const PinName digitalPin[] = {
-  PA_0,   // D0/A0
-  PA_1,   // D1/A1
-  PA_2,   // D2/A2
-  PA_3,   // D3/A3
-  PA_4,   // D4/A4
-  PA_5,   // D5/A5
-  PA_6,   // D6/A6
-  PA_7,   // D7/A7
-  PA_8,   // D8
-  PA_9,   // D9
-  PA_10,  // D10
-  PA_11,  // D11
-  PA_12,  // D12
-  PA_13,  // D13
-  PA_14,  // D14
-  PA_15,  // D15
-  PB_0,   // D16/A8
-  PB_1,   // D17/A9
-  PB_2,   // D18
-  PB_3,   // D19
-  PB_4,   // D20
-  PB_5,   // D21
-  PB_6,   // D22
-  PB_7,   // D23
-  PB_8,   // D24
-  PB_9,   // D25
-  PB_10,  // D26
-  PB_11,  // D27
-  PB_12,  // D28
-  PB_13,  // D29
-  PB_14,  // D30
-  PB_15,  // D31
-  PC_0,   // D32/A10
-  PC_1,   // D33/A11
-  PC_2,   // D34/A12
-  PC_3,   // D35/A13
-  PC_4,   // D36/A14
-  PC_5,   // D37/A15
-  PC_6,   // D38
-  PC_7,   // D39
-  PC_8,   // D40
-  PC_9,   // D41
-  PC_10,  // D42
-  PC_11,  // D43
-  PC_12,  // D44
-  PC_13,  // D45
-  PC_14,  // D46
-  PC_15,  // D47
-  PD_0,   // D48
-  PD_1,   // D49
-  PD_2,   // D50
-  PD_3,   // D51
-  PD_4,   // D52
-  PD_5,   // D53
-  PD_6,   // D54
-  PD_7,   // D55
-  PD_8,   // D56
-  PD_9,   // D57
-  PD_10,  // D58
-  PD_11,  // D59
-  PD_12,  // D60
-  PD_13,  // D61
-  PD_14,  // D62
-  PD_15,  // D63
-  PE_0,   // D64
-  PE_1,   // D65
-  PE_2,   // D66
-  PE_3,   // D67
-  PE_4,   // D68
-  PE_5,   // D69
-  PE_6,   // D70
-  PE_7,   // D71
-  PE_8,   // D72
-  PE_9,   // D73
-  PE_10,  // D74
-  PE_11,  // D75
-  PE_12,  // D76
-  PE_13,  // D77
-  PE_14,  // D78
-  PE_15,  // D79
-  PF_0,   // D80
-  PF_1,   // D81
-  PF_2,   // D82
-  PF_3,   // D83/A16
-  PF_4,   // D84/A17
-  PF_5,   // D85/A18
-  PF_6,   // D86/A19
-  PF_7,   // D87/A20
-  PF_8,   // D88/A21
-  PF_9,   // D89/A22
-  PF_10,  // D90/A23
-  PF_11,  // D91/A24
-  PF_12,  // D92/A25
-  PF_13,  // D93/A26
-  PF_14,  // D94/A27
-  PF_15,  // D95
-  PG_0,   // D96
-  PG_1,   // D97
-  PG_2,   // D98
-  PG_3,   // D99
-  PG_4,   // D100
-  PG_5,   // D101
-  PG_6,   // D102
-  PG_7,   // D103
-  PG_8,   // D104
-  PG_9,   // D105
-  PG_10,  // D106
-  PG_11,  // D107
-  PG_12,  // D108
-  PG_13,  // D109
-  PG_14,  // D110
-  PG_15,  // D111
-  PH_0,   // D112
-  PH_1    // D113
+//#ifdef ARDUINO_NUCLEO_H723ZQ
+  PB_7,
+  PB_6,
+  PG_14,
+  PE_13,
+  PE_14,
+  PE_11,
+  PE_9,
+  PG_12,
+  PF_3,
+  PD_15,
+  PD_14,
+  PB_5,
+  PA_6,
+  PA_5,
+  PB_9,
+  PB_8,
+  PC_6,
+  PB_15,
+  PB_13,
+  PB_12,
+  PA_15,
+  PC_7,
+  PB_5,
+  PB_3,
+  PA_4,
+  PB_4,
+  PG_6,
+  PB_2,
+  PD_13,
+  PD_12,
+  PD_11,
+  PE_2,
+  PA_0,
+  PB_0,
+  PE_0,
+  PB_11,
+  PB_10,
+  PE_15,
+  PE_6,
+  PE_12,
+  PE_10,
+  PE_7,
+  PE_8,
+  PC_8,
+  PC_9,
+  PC_10,
+  PC_11,
+  PC_12,
+  PD_2,
+  PG_2,
+  PG_3,
+  PD_7,
+  PD_6,
+  PD_5,
+  PD_4,
+  PD_3,
+  PE_2,
+  PE_4,
+  PE_5,
+  PE_6,
+  PE_3,
+  PF_8,
+  PF_7,
+  PF_9,
+  PG_1,
+  PG_0,
+  PD_1,
+  PD_0,
+  PF_0,
+  PF_1,
+  PF_2,
+  PE_9,
+  PB_2,
+  PA_3,
+  PC_0,
+  PC_3,  /* _C */
+  PB_1,
+  PC_2, /* _C */
+  PF_10,
+  PF_4,
+  PF_5,
+  PF_6,
+  PF_11,
+  PA_1,
+  PA_2,
+  PA_7,
+  PA_8,
+  PA_9,
+  PA_10,
+  PA_11,
+  PA_12,
+  PA_13,
+  PA_14,
+  PB_14,
+  PC_1,
+  PC_4,
+  PC_5,
+  PC_13,
+  PC_14,
+  PC_15,
+  PD_8,
+  PD_9,
+  PD_10,
+  PE_1,
+  PF_12,
+  PF_13,
+  PF_14,
+  PF_15,
+  PG_4,
+  PG_5,
+  PG_7,
+  PG_8,
+  PG_9,
+  PG_10,
+  PG_11,
+  PG_13,
+  PG_15,
+  PH_0,
+  PH_1
 };
 
 // Analog (Ax) pin number array
 const uint32_t analogInputPin[] = {
-  0,  // A0,  PA0
-  1,  // A1,  PA1
-  2,  // A2,  PA2
-  3,  // A3,  PA3
-  4,  // A4,  PA4
-  5,  // A5,  PA5
-  6,  // A6,  PA6
-  7,  // A7,  PA7
-  16, // A8,  PB0
-  17, // A9,  PB1
-  32, // A10, PC0
-  33, // A11, PC1
-  34, // A12, PC2
-  35, // A13, PC3
-  36, // A14, PC4
-  37, // A15, PC5
-  83, // A16, PF3
-  84, // A17, PF4
-  85, // A18, PF5
-  86, // A19, PF6
-  87, // A20, PF7
-  88, // A21, PF8
-  89, // A22, PF9
-  90, // A23, PF10
-  91, // A24, PF11
-  92, // A25, PF12
-  93, // A26, PF13
-  94  // A27, PF14
+  73,  // A0
+  74,  // A1
+  75,  // A2
+  76,  // A3
+  77,  // A4
+  78,  // A5
+  79,  // A6
+  80,  // A7
+  81,  // A8
+  82,  // A9
+  83,  // A10
+  84,  // A11
 };
 // ----------------------------------------------------------------------------
 
@@ -172,7 +164,7 @@ extern "C" {
     * @brief System Clock Configuration
     * @retval None
     */
-  void SystemClock_Config(void)
+  WEAK void SystemClock_Config(void)
   {
     RCC_OscInitTypeDef RCC_OscInitStruct = { 0 };
     RCC_ClkInitTypeDef RCC_ClkInitStruct = { 0 };

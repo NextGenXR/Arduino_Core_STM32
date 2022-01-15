@@ -24,12 +24,12 @@
 #define PE11                    5  // TIMER_A_PWM2
 #define PE9                     6  // TIMER_A_PWM1
 #define PG12                    7
-#define PF3                     PIN_A19
+#define PF3                     8 // PIN_A19
 #define PD15                    9  // TIMER_B_PWM2
 #define PD14                    10 // SPI_A_CS/ TIM_B_PWM3
 #define PB5                     11 // SPI_A_MOSI/ PA7 if SB33 ON and SB35 OFF
-#define PA6                     PIN_A20 // SPI_A_MISO
-#define PA5                     PIN_A21 // SPI_A_SCK
+#define PA6                     12 //PIN_A20 // SPI_A_MISO
+#define PA5                     13 //PIN_A21 // SPI_A_SCK
 #define PB9                     14 // I2C_A_SDA
 #define PB8                     15 // I2C_A_SCL
 #define PC6                     16 // I2S_A_MCK
@@ -38,9 +38,9 @@
 #define PB12                    19 // I2S_A_WS
 #define PA15                    20 // I2S_B_WS
 #define PC7                     21 // I2S_B_MCK
- // 22 is PB5                   (11)
+// 22 is PB5                   (11)
 #define PB3                     23 // I2S_B_CK/SPI_B_SCK - SWO
-#define PA4                     PIN_A22 // SPI_B_NSS
+#define PA4                     24 //PIN_A22 // SPI_B_NSS
 #define PB4                     25 // SPI_B_MISO
 #define PG6                     26 // QSPI_CS
 #define PB2                     27 // QSPI_CLK
@@ -48,8 +48,8 @@
 #define PD12                    29 // QSPI_BK1_IO1
 #define PD11                    30 // QSPI_BK1_IO0
 #define PE2                     31 // SAI_A_MCLK/QSPI_BK1_IO2
-#define PA0                     PIN_A23 // TIMER_C_PWM1
-#define PB0                     PIN_A24 // TIMER_D_PWM1 - LD1 LED_GREEN
+#define PA0                     25 //PIN_A23 // TIMER_C_PWM1
+#define PB0                     26 //PIN_A24 // TIMER_D_PWM1 - LD1 LED_GREEN
 #define PE0                     34 // TIMER_B_ETR
 #define PB11                    35 // TIMER_C_PWM3
 #define PB10                    36 // TIMER_C_PWM2
@@ -77,9 +77,9 @@
 #define PE5                     58 // SAI_A_SCK
 // 59 is PE6                   (38)
 #define PE3                     60 // SAI_B_SD
-#define PF8                     PIN_A25 // SAI_B_SCK
-#define PF7                     PIN_A26 // SAI_B_MCLK
-#define PF9                     PIN_A27 // SAI_B_FS
+#define PF8                     61 //PIN_A25 // SAI_B_SCK
+#define PF7                     62 //PIN_A26 // SAI_B_MCLK
+#define PF9                     63 //PIN_A27 // SAI_B_FS
 #define PG1                     64
 #define PG0                     65
 #define PD1                     66 // CAN_TX
@@ -91,11 +91,11 @@
 // 72 is PB2                   (27)
 #define PA3                     PIN_A0
 #define PC0                     PIN_A1
-#define PC3                     PIN_A2  // PC3_C
 #define PB1                     PIN_A3
-#define PC2                     PIN_A4  // PC2_C
+#define PC3_C                   PIN_A2 
+#define PC2_C                   PIN_A4  
 #define PF10                    PIN_A5
-// Extended I/O Pins
+// ZIO Extended I/O Pins
 #define PF4                     PIN_A6
 #define PF5                     PIN_A7
 #define PF6                     PIN_A8
@@ -103,6 +103,7 @@
 #define PA1                     PIN_A10 // RMII Reference Clock - SB57 ON (default)
 #define PA2                     PIN_A11 // RMII MDIO - SB72 ON (default)
 #define PA7                     PIN_A12 // RMII RX Data Valid - SB31 ON (default)
+
 #define PA8                     86
 #define PA9                     87
 #define PA10                    88
@@ -111,9 +112,9 @@
 #define PA13                    91
 #define PA14                    92
 #define PB14                    93  // LD3 LED_RED
-#define PC1                     PIN_A13
-#define PC4                     PIN_A14 // RMII RXD0 - SB36 ON (default)
-#define PC5                     PIN_A15 // RMII RXD1 - SB29 ON (default)
+//#define PC1                     PIN_A13
+//#define PC4                     PIN_A14 // RMII RXD0 - SB36 ON (default)
+//#define PC5                     PIN_A15 // RMII RXD1 - SB29 ON (default)
 #define PC13                    97
 #define PC14                    98
 #define PC15                    99  // USER_BTN
@@ -208,84 +209,91 @@
 #define PG13_ALT1               (PG13 | ALT1)
 
 #define NUM_DIGITAL_PINS        119
-#define NUM_ANALOG_INPUTS       28
+#define NUM_DUALPAD_PINS        0 //2
+#define NUM_ANALOG_INPUTS       18
 
 // On-board LED pin number
 #ifndef LED_BUILTIN
-  #define LED_BUILTIN           PB14
+  #define LED_GREEN               PB0 // Conflict with ETH. Alt PB5 or NC
+  #define LD1                     LED_GREEN
+  #define LED_YELLOW              PE1
+  #define LD2                     LED_YELLOW
+  #define LED_RED                 PB14
+  #define LD3                     LED_RED
+  #define LED_BUILTIN             LED_RED
 #endif
 
 // On-board user button
 #ifndef USER_BTN
-  #define USER_BTN              PC13
+#define USER_BTN              PC13
 #endif
 
 // SPI definitions
 #ifndef PIN_SPI_SS
-  #define PIN_SPI_SS            PD14
+#define PIN_SPI_SS            PD14
 #endif
 #ifndef PIN_SPI_SS1
-  #define PIN_SPI_SS1           PD15
+#define PIN_SPI_SS1           PD15
 #endif
 #ifndef PIN_SPI_SS2
-  #define PIN_SPI_SS2           PG10
+#define PIN_SPI_SS2           PG10
 #endif
 #ifndef PIN_SPI_SS3
-  #define PIN_SPI_SS3           PNUM_NOT_DEFINED
+#define PIN_SPI_SS3           PNUM_NOT_DEFINED
 #endif
 #ifndef PIN_SPI_MOSI
-  #define PIN_SPI_MOSI          PB5
+#define PIN_SPI_MOSI          PB5
 #endif
 #ifndef PIN_SPI_MISO
-  #define PIN_SPI_MISO          PA6
+#define PIN_SPI_MISO          PA6
 #endif
 #ifndef PIN_SPI_SCK
-  #define PIN_SPI_SCK           PA5
+#define PIN_SPI_SCK           PA5
 #endif
 
 // I2C definitions
 #ifndef PIN_WIRE_SDA
-  #define PIN_WIRE_SDA          PB8
+#define PIN_WIRE_SDA          PB8
 #endif
 #ifndef PIN_WIRE_SCL
-  #define PIN_WIRE_SCL          PB9
+#define PIN_WIRE_SCL          PB9
 #endif
 
 // Timer Definitions
 // Use TIM6/TIM7 when possible as servo and tone don't need GPIO output pin
 #ifndef TIMER_TONE
-  #define TIMER_TONE            TIM6
+#define TIMER_TONE            TIM6
 #endif
 #ifndef TIMER_SERVO
-  #define TIMER_SERVO           TIM7
+#define TIMER_SERVO           TIM7
 #endif
 
 // UART Definitions
 #ifndef SERIAL_UART_INSTANCE
-  #define SERIAL_UART_INSTANCE  4
+#define SERIAL_UART_INSTANCE  4
 #endif
 
 // Default pin used for generic 'Serial' instance
 // Mandatory for Firmata
 #ifndef PIN_SERIAL_RX
-  #define PIN_SERIAL_RX         PB6
+#define PIN_SERIAL_RX         PB6
 #endif
 #ifndef PIN_SERIAL_TX
-  #define PIN_SERIAL_TX         PB7
+#define PIN_SERIAL_TX         PB7
 #endif
 
 // Extra HAL modules
 #if !defined(HAL_DAC_MODULE_DISABLED)
-  #define HAL_DAC_MODULE_ENABLED
+#define HAL_DAC_MODULE_ENABLED
 #endif
 #if !defined(HAL_ETH_MODULE_DISABLED)
-  #define HAL_ETH_MODULE_ENABLED
+#define HAL_ETH_MODULE_ENABLED
 #endif
 #if !defined(HAL_OSPI_MODULE_DISABLED)
-  #define HAL_OSPI_MODULE_ENABLED
+#define HAL_OSPI_MODULE_ENABLED
 #endif
 #if !defined(HAL_SD_MODULE_DISABLED)
-  #define HAL_SD_MODULE_ENABLED
+#define HAL_SD_MODULE_ENABLED
 #endif
 
 /*----------------------------------------------------------------------------
@@ -293,25 +301,25 @@
  *----------------------------------------------------------------------------*/
 
 #ifdef __cplusplus
-  // These serial port names are intended to allow libraries and architecture-neutral
-  // sketches to automatically default to the correct port name for a particular type
-  // of use.  For example, a GPS module would normally connect to SERIAL_PORT_HARDWARE_OPEN,
-  // the first hardware serial port whose RX/TX pins are not dedicated to another use.
-  //
-  // SERIAL_PORT_MONITOR        Port which normally prints to the Arduino Serial Monitor
-  //
-  // SERIAL_PORT_USBVIRTUAL     Port which is USB virtual serial
-  //
-  // SERIAL_PORT_LINUXBRIDGE    Port which connects to a Linux system via Bridge library
-  //
-  // SERIAL_PORT_HARDWARE       Hardware serial port, physical RX & TX pins.
-  //
-  // SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
-  //                            pins are NOT connected to anything by default.
-  #ifndef SERIAL_PORT_MONITOR
-    #define SERIAL_PORT_MONITOR   Serial
-  #endif
-  #ifndef SERIAL_PORT_HARDWARE
-    #define SERIAL_PORT_HARDWARE  Serial
-  #endif
+// These serial port names are intended to allow libraries and architecture-neutral
+// sketches to automatically default to the correct port name for a particular type
+// of use.  For example, a GPS module would normally connect to SERIAL_PORT_HARDWARE_OPEN,
+// the first hardware serial port whose RX/TX pins are not dedicated to another use.
+//
+// SERIAL_PORT_MONITOR        Port which normally prints to the Arduino Serial Monitor
+//
+// SERIAL_PORT_USBVIRTUAL     Port which is USB virtual serial
+//
+// SERIAL_PORT_LINUXBRIDGE    Port which connects to a Linux system via Bridge library
+//
+// SERIAL_PORT_HARDWARE       Hardware serial port, physical RX & TX pins.
+//
+// SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
+//                            pins are NOT connected to anything by default.
+#ifndef SERIAL_PORT_MONITOR
+#define SERIAL_PORT_MONITOR   Serial
+#endif
+#ifndef SERIAL_PORT_HARDWARE
+#define SERIAL_PORT_HARDWARE  Serial
+#endif
 #endif
