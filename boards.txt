@@ -91,7 +91,7 @@ Nucleo_144.menu.pnum.NUCLEO_F767ZI.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
 
 # NUCLEO_H723ZQ board
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ=Nucleo H723ZQ
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.node=NODE_H723ZQ
+Nucleo_144.menu.pnum.NUCLEO_H723ZQ.node=NOD_H723ZQ
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.upload.maximum_size=1048576
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.upload.maximum_data_size=327680
 Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.mcu=cortex-m7
