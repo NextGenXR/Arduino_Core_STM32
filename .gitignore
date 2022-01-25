@@ -35,3 +35,4 @@ __pycache__/
 
 # VisualStudio
 .vs/*
+package_version.txt
