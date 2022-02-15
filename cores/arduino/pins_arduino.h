@@ -16,11 +16,16 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #ifndef _PINS_ARDUINO_H_
-#define _PINS_ARDUINO_H_
-#include <stdbool.h>
-#include <stdlib.h> /* Required for static_assert */
+#define _PINS_ARDUINO_H_  // NOLINT(clang-diagnostic-reserved-macro-identifier, bugprone-reserved-identifier)
+
+#include <cstdbool>
+// ReSharper disable once CppUnusedIncludeDirective
+#include <cstdlib> /* Required for static_assert */  // NOLINT(clang-diagnostic-pragma-pack)
+#include <cstdint>
+#include "stm32/PortNames.h"
+
 #include "variant.h"
-#include "PinNames.h"
+#include "stm32/PinNames.h"
 
 #include "pins_arduino_analog.h"
 #include "pins_arduino_digital.h"
@@ -123,7 +128,7 @@ uint32_t pinNametoDigitalPin(PinName p);
 PinName analogInputToPinName(uint32_t pin);
 
 /* All pins could manage EXTI */
-#define digitalPinToInterrupt(p)    (digitalPinIsValid(p) ? p : NOT_AN_INTERRUPT)
+#define digitalPinToInterrupt(p)    (digitalPinIsValid(p) ? (p) : NOT_AN_INTERRUPT)
 
 #define digitalPinHasI2C(p)         (pin_in_pinmap(digitalPinToPinName(p), PinMap_I2C_SDA) ||\
                                      pin_in_pinmap(digitalPinToPinName(p), PinMap_I2C_SCL))
@@ -140,15 +145,15 @@ PinName analogInputToPinName(uint32_t pin);
 #define digitalPinToBitMask(p)      (STM_GPIO_PIN(digitalPinToPinName(p)))
 
 #define analogInPinToBit(p)         (STM_GPIO_PIN(digitalPinToPinName(p)))
-#define portOutputRegister(P)       (&(P->ODR))
-#define portInputRegister(P)        (&(P->IDR))
+#define portOutputRegister(P)       (&((P)->ODR))
+#define portInputRegister(P)        (&((P)->IDR))
 
-#define portSetRegister(P)          (&(P->BSRR))
+#define portSetRegister(P)          (&((P)->BSRR))
 #if defined(STM32F2xx) || defined(STM32F4xx) || defined(STM32F7xx)
 /* For those series reset are in the high part so << 16U needed */
 #define portClearRegister(P)        (&(P->BSRR))
 #else
-#define portClearRegister(P)        (&(P->BRR))
+#define portClearRegister(P)        (&((P)->BRR))
 #endif
 
 
@@ -161,7 +166,7 @@ PinName analogInputToPinName(uint32_t pin);
  */
 #define portModeRegister(P)         (&(P->CRL))
 #else
-#define portModeRegister(P)         (&(P->MODER))
+#define portModeRegister(P)         (&((P)->MODER))
 #endif
 #define portConfigRegister(P)       (portModeRegister(P))
 
