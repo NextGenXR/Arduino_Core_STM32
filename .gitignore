@@ -32,3 +32,5 @@ __pycache__/
 # VisualStudioCode
 .vscode/*
 *.code-workspace
+.vs/Arduino_Core_STM32/FileContentIndex
+.vs/Arduino_Core_STM32/v17
