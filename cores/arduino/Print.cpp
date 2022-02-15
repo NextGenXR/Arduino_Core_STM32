@@ -16,10 +16,10 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include <stdlib.h>
-#include <string.h>
+#include <cstdlib>
+#include <cstring>
 #include <unistd.h>
-#include <math.h>
+#include <cmath>
 #include "Arduino.h"
 
 #include "Print.h"
@@ -41,7 +41,7 @@ size_t Print::write(const uint8_t *buffer, size_t size)
       break;
     }
   }
-  return n;
+  return (n);
 }
 
 size_t Print::print(const __FlashStringHelper *ifsh)
@@ -51,32 +51,32 @@ size_t Print::print(const __FlashStringHelper *ifsh)
 
 size_t Print::print(const String &s)
 {
-  return write(s.c_str(), s.length());
+  return (write(s.c_str(), s.length()));
 }
 
 size_t Print::print(const char str[])
 {
-  return write(str);
+  return (write(str));
 }
 
 size_t Print::print(char c)
 {
-  return write(c);
+  return (write(c));
 }
 
 size_t Print::print(unsigned char b, int base)
 {
-  return print((unsigned long) b, base);
+  return (print(static_cast<unsigned long>(b), base));
 }
 
 size_t Print::print(int n, int base)
 {
-  return print((long) n, base);
+  return (print(static_cast<long>(n), base));
 }
 
 size_t Print::print(unsigned int n, int base)
 {
-  return print((unsigned long) n, base);
+  return (print(static_cast<unsigned long>(n), base));
 }
 
 size_t Print::print(long n, int base)
@@ -85,22 +85,22 @@ size_t Print::print(long n, int base)
     return write(n);
   } else if (base == 10) {
     if (n < 0) {
-      int t = print('-');
+      const size_t t = print('-');
       n = -n;
-      return printNumber(n, 10) + t;
+      return (printNumber(n, 10) + t);
     }
-    return printNumber(n, 10);
+    return (printNumber(n, 10));
   } else {
-    return printNumber(n, base);
+    return (printNumber(n, base));
   }
 }
 
 size_t Print::print(unsigned long n, int base)
 {
   if (base == 0) {
-    return write(n);
+    return (write(n));
   } else {
-    return printNumber(n, base);
+    return (printNumber(n, base));
   }
 }
 
@@ -123,22 +123,22 @@ size_t Print::print(long long n, int base)
 size_t Print::print(unsigned long long n, int base)
 {
   if (base == 0) {
-    return write(n);
+    return (write(n));
   } else {
-    return printULLNumber(n, base);
+    return (printULLNumber(n, base));
   }
 }
 
 size_t Print::print(double n, int digits)
 {
-  return printFloat(n, digits);
+  return (printFloat(n, digits))     ;
 }
 
 size_t Print::println(const __FlashStringHelper *ifsh)
 {
   size_t n = print(ifsh);
   n += println();
-  return n;
+  return (n);
 }
 
 size_t Print::print(const Printable &x)
@@ -252,10 +252,10 @@ extern "C" {
       case STDIN_FILENO:
         break;
       default:
-        ((class Print *)file)->write((uint8_t *)ptr, len);
+        ((class Print *)file)->write(reinterpret_cast<uint8_t*>(ptr), len);
         break;
     }
-    return len;
+    return (len);
   }
 }
 
@@ -263,16 +263,16 @@ int Print::printf(const char *format, ...)
 {
   va_list ap;
   va_start(ap, format);
-  int retval = vdprintf((int)this, format, ap);
+  const int retval = vdprintf(reinterpret_cast<int>(this), format, ap);
   va_end(ap);
-  return retval;
+  return (retval);
 }
 
 int Print::printf(const __FlashStringHelper *format, ...)
 {
   va_list ap;
   va_start(ap, format);
-  int retval = vdprintf((int)this, (const char *)format, ap);
+  const int retval = vdprintf(reinterpret_cast<int>(this), reinterpret_cast<const char*>(format), ap);
   va_end(ap);
   return retval;
 }
@@ -298,7 +298,7 @@ size_t Print::printNumber(unsigned long n, uint8_t base)
     *--str = c < 10 ? c + '0' : c + 'A' - 10;
   } while (n);
 
-  return write(str);
+  return (write(str));
 }
 
 /*
@@ -388,9 +388,7 @@ size_t Print::printULLNumber(unsigned long long n64, uint8_t base)
 
   size_t bytes = i;
   for (; i > 0; i--) {
-    write((char)(buf[i - 1] < 10 ?
-                 '0' + buf[i - 1] :
-                 'A' + buf[i - 1] - 10));
+    write(static_cast<char>(buf[i - 1] < 10 ? '0' + buf[i - 1] : 'A' + buf[i - 1] - 10));
   }
   return bytes;
 }
@@ -427,8 +425,8 @@ size_t Print::printFloat(double number, uint8_t digits)
   number += rounding;
 
   // Extract the integer part of the number and print it
-  unsigned long int_part = (unsigned long)number;
-  double remainder = number - (double)int_part;
+  const auto int_part = static_cast<unsigned long>(number);
+  double remainder = number - static_cast<double>(int_part);
   n += print(int_part);
 
   // Print the decimal point, but only if there are digits beyond
@@ -439,7 +437,7 @@ size_t Print::printFloat(double number, uint8_t digits)
   // Extract digits from the remainder one at a time
   while (digits-- > 0) {
     remainder *= 10.0;
-    unsigned int toPrint = (unsigned int)remainder;
+    auto toPrint = static_cast<unsigned>(remainder);
     n += print(toPrint);
     remainder -= toPrint;
   }
