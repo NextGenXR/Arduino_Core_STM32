@@ -28,7 +28,7 @@
  *******************************************************************************
  */
 #ifndef _PORTNAMES_H
-#define _PORTNAMES_H
+#define _PORTNAMES_H  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
 
 #include "stm32_def.h"
 
@@ -38,7 +38,7 @@ extern "C" {
 
 extern GPIO_TypeDef *GPIOPort[];
 
-typedef enum {
+using PortName = enum {
   FirstPort = 0x00,
   PortA = FirstPort,
   PortB,
@@ -74,7 +74,7 @@ typedef enum {
 #endif
   PortEND,
   LastPort = PortEND - 1
-} PortName;
+};
 
 #define MAX_NB_PORT (LastPort-FirstPort+1)
 
