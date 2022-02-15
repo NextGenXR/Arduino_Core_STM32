@@ -17,9 +17,9 @@
 */
 
 #ifndef _RING_BUFFER_
-#define _RING_BUFFER_
+#define _RING_BUFFER_  // NOLINT(clang-diagnostic-reserved-macro-identifier, bugprone-reserved-identifier)
 
-#include <stdint.h>
+#include <cstdint>
 
 // Define constants and variables for buffering incoming serial data.  We're
 // using a ring buffer, in which head is the index of the location

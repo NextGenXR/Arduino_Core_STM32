@@ -11,7 +11,8 @@
  *******************************************************************************
  */
 #ifndef _PINS_ARDUINO_DIGITAL_H_
-#define _PINS_ARDUINO_DIGITAL_H_
+#define _PINS_ARDUINO_DIGITAL_H_  // NOLINT(bugprone-reserved-identifier)
+// ReSharper disable once CppUnusedIncludeDirective
 #include "variant.h"
 
 /* GPIO port (A to K + Z) * 16 pins: 192 */

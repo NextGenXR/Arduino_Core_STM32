@@ -20,7 +20,7 @@
 #ifndef Character_h
 #define Character_h
 
-#include <ctype.h>
+#include <cctype>
 
 #ifdef __cplusplus
 extern "C" {
