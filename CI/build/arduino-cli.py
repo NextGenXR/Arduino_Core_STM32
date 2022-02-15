@@ -90,7 +90,7 @@ skip_count = 0
 
 # error or fatal error
 fork_pattern = re.compile(r"^Error during build: fork/exec")
-error_pattern = re.compile(r":\d+:\d+:\s.*error:\s|^Error:")
+error_pattern = re.compile(r":\d+:\d*:?\s.*error:\s|^Error:")
 ld_pattern = re.compile("arm-none-eabi/bin/ld:")
 overflow_pattern = re.compile(
     r"(will not fit in |section .+ is not within )?region( .+ overflowed by [\d]+ bytes)?"
@@ -325,8 +325,8 @@ def load_core_config():
     global arch
     cores_config_filename = ""
     if args.config:
-        assert args.config.exists(), f"{args.config} not found"
-        cores_config_filename = args.config
+        cores_config_filename = Path(args.config)
+        assert cores_config_filename.exists(), f"{args.config} not found"
     else:
         if args.ci:
             cores_config_filename = cores_config_file_ci
