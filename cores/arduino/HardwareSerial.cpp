@@ -127,6 +127,12 @@ HardwareSerial::HardwareSerial(PinName _rx, PinName _tx, PinName _rts, PinName _
 
 HardwareSerial::HardwareSerial(void *peripheral, HalfDuplexMode_t halfDuplex)
 {
+
+  void HardwareSerial::begin(unsigned long, uint8_t)
+  {
+
+  }
+
   // If PIN_SERIALy_RX is not defined assume half-duplex
   _serial.pin_rx = NC;
   // If Serial is defined in variant set

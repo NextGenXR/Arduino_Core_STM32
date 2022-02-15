@@ -24,7 +24,7 @@
 #ifndef HardwareSerial_h
 #define HardwareSerial_h
 
-#include <inttypes.h>
+#include <cinttypes>
 
 #include "Stream.h"
 #include "uart.h"
@@ -121,11 +121,11 @@ class HardwareSerial : public Stream {
     }
     void begin(unsigned long, uint8_t);
     void end();
-    virtual int available(void);
-    virtual int peek(void);
-    virtual int read(void);
-    int availableForWrite(void);
-    virtual void flush(void);
+    int available(void) override;
+    int peek(void) override;
+    int read(void) override;
+    int availableForWrite(void) override;
+    void flush(void) override;
     virtual size_t write(uint8_t);
     inline size_t write(unsigned long n)
     {
@@ -139,7 +139,7 @@ class HardwareSerial : public Stream {
     {
       return write((uint8_t)n);
     }
-    inline size_t write(int n)
+    inline size_t write(int n) override
     {
       return write((uint8_t)n);
     }
