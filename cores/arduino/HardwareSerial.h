@@ -166,7 +166,7 @@ class HardwareSerial : public Stream {
     // Enable half-duplex mode by setting the Rx pin to NC
     // This needs to be done before the call to begin()
     void setHalfDuplex(void);
-    bool isHalfDuplex(void) const;
+    [[nodiscard]] bool isHalfDuplex(void) const;
     void enableHalfDuplexRx(void);
 
     friend class STM32LowPower;
