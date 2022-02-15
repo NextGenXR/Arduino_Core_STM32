@@ -20,21 +20,24 @@
 */
 
 #include "Arduino.h"
+#include "pins_arduino.h"
 #include "HardwareTimer.h"
+#include "stm32/digital_io.h"
+#include "stm32/PinNamesTypes.h"
 
-#if defined(HAL_TIM_MODULE_ENABLED) && defined(TIMER_TONE) && !defined(HAL_TIM_MODULE_ONLY)
+//#if defined(HAL_TIM_MODULE_ENABLED) && defined(TIMER_TONE) && !defined(HAL_TIM_MODULE_ONLY)
 
 #define MAX_FREQ  65535
 
-typedef struct {
+using timerPinInfo_t = struct {
   PinName pin;
   int32_t count;
-} timerPinInfo_t;
+};
 
 static void timerTonePinInit(PinName p, uint32_t frequency, uint32_t duration);
 static void tonePeriodElapsedCallback();
 static timerPinInfo_t TimerTone_pinInfo = {NC, 0};
-static HardwareTimer *TimerTone = NULL;
+static HardwareTimer *TimerTone = nullptr;
 
 /**
   * @brief  Tone Period elapsed callback in non-blocking mode
@@ -45,7 +48,7 @@ static void tonePeriodElapsedCallback()
 {
   GPIO_TypeDef *port = get_GPIO_Port(STM_PORT(TimerTone_pinInfo.pin));
 
-  if (port != NULL) {
+  if (port != nullptr) {
     if (TimerTone_pinInfo.count != 0) {
       if (TimerTone_pinInfo.count > 0) {
         TimerTone_pinInfo.count--;
@@ -65,7 +68,7 @@ static void tonePeriodElapsedCallback()
   */
 static void timerTonePinDeinit()
 {
-  if (TimerTone != NULL) {
+  if (TimerTone != nullptr) {
     TimerTone->timerHandleDeinit();
   }
   if (TimerTone_pinInfo.pin != NC) {
@@ -80,7 +83,7 @@ static void timerTonePinInit(PinName p, uint32_t frequency, uint32_t duration)
 
   if (frequency <= MAX_FREQ) {
     if (frequency == 0) {
-      if (TimerTone != NULL) {
+      if (TimerTone != nullptr) {
         TimerTone->pause();
       }
     } else {
@@ -107,7 +110,7 @@ void tone(uint8_t _pin, unsigned int frequency, unsigned long duration)
 {
   PinName p = digitalPinToPinName(_pin);
 
-  if (TimerTone == NULL) {
+  if (TimerTone == nullptr) {
     TimerTone = new HardwareTimer(TIMER_TONE);
   }
 
@@ -121,7 +124,7 @@ void tone(uint8_t _pin, unsigned int frequency, unsigned long duration)
 void noTone(uint8_t _pin, bool destruct)
 {
   PinName p = digitalPinToPinName(_pin);
-  if ((p != NC) && (TimerTone_pinInfo.pin == p) && (TimerTone != NULL)) {
+  if ((p != NC) && (TimerTone_pinInfo.pin == p) && (TimerTone != nullptr)) {
     if (destruct) {
       timerTonePinDeinit();
       delete (TimerTone);
