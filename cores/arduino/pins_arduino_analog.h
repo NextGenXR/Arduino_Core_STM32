@@ -11,9 +11,9 @@
  *******************************************************************************
  */
 #ifndef _PINS_ARDUINO_ANALOG_H_
-#define _PINS_ARDUINO_ANALOG_H_
+#define _PINS_ARDUINO_ANALOG_H_  // NOLINT(bugprone-reserved-identifier)
 #include "variant.h"
-#include "PinNames.h"
+#include "stm32/PinNames.h"
 
 /*
  * Pin number Analog base

@@ -17,7 +17,7 @@
 */
 
 #ifndef _WIRING_TONE_
-#define _WIRING_TONE_
+#define _WIRING_TONE_  // NOLINT(bugprone-reserved-identifier)
 
 #ifdef __cplusplus
   /*

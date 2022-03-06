@@ -40,6 +40,8 @@
 #define __SPI_COM_H
 
 /* Includes ------------------------------------------------------------------*/
+#include <cstdint>
+
 #include "stm32_def.h"
 #include "PeripheralPins.h"
 
@@ -49,6 +51,9 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 
+/**
+ * \brief SPI Config and Data Structure
+ */
 struct spi_s {
   SPI_HandleTypeDef handle;
   SPI_TypeDef *spi;
@@ -63,7 +68,7 @@ struct spi_s {
 #endif
 };
 
-typedef struct spi_s spi_t;
+using spi_t = struct spi_s;
 
 
 ///@brief specifies the SPI speed bus in HZ.
@@ -93,11 +98,11 @@ typedef enum {
 } spi_mode_e;
 
 ///@brief SPI errors
-typedef enum {
+using spi_status_e = enum {
   SPI_OK = 0,
   SPI_TIMEOUT = 1,
   SPI_ERROR = 2
-} spi_status_e;
+};
 
 /* Exported functions ------------------------------------------------------- */
 void spi_init(spi_t *obj, uint32_t speed, spi_mode_e mode, uint8_t msb);

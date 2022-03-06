@@ -18,6 +18,10 @@
 
 #include "pins_arduino.h"
 
+#include "stm32/PinNames.h"
+#include "stm32/PinNamesTypes.h"
+#include <cstdbool>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

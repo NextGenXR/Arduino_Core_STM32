@@ -18,9 +18,14 @@
 
 #include "WInterrupts.h"
 #include "Arduino.h"
+#include "pins_arduino.h"
 
+#ifdef STM32F1xx
 #include "PinAF_STM32F1.h"
-#include "interrupt.h"
+#endif
+
+#include "stm32/interrupt.h"
+#include "stm32/PortNames.h"
 
 void attachInterrupt(uint32_t pin, callback_function_t callback, uint32_t mode)
 {

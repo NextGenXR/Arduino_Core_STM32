@@ -25,60 +25,57 @@
 #include "Arduino.h"
 #include "Stream.h"
 
-#define PARSE_TIMEOUT 1000  // default number of milli-seconds to wait
+#define PARSE_TIMEOUT 1000  // default number of milliseconds to wait
 
 // private method to read stream with timeout
 int Stream::timedRead()
 {
-  int c;
   _startMillis = millis();
   do {
-    c = read();
+    const int c = read();
     if (c >= 0) {
-      return c;
+      return (c);
     }
   } while (millis() - _startMillis < _timeout);
-  return -1;     // -1 indicates timeout
+  return (- 1);     // -1 indicates timeout
 }
 
 // private method to peek stream with timeout
 int Stream::timedPeek()
 {
-  int c;
   _startMillis = millis();
   do {
-    c = peek();
+    const int c = peek();
     if (c >= 0) {
-      return c;
+      return (c);
     }
   } while (millis() - _startMillis < _timeout);
-  return -1;     // -1 indicates timeout
+  return (- 1);     // -1 indicates timeout
 }
 
 // returns peek of the next digit in the stream or -1 if timeout
 // discards non-numeric characters
 int Stream::peekNextDigit(LookaheadMode lookahead, bool detectDecimal)
 {
-  int c;
   while (1) {
-    c = timedPeek();
+    const int c = timedPeek();
 
     if (c < 0 ||
         c == '-' ||
         (c >= '0' && c <= '9') ||
         (detectDecimal && c == '.')) {
-      return c;
+      return (c);
     }
 
     switch (lookahead) {
-      case SKIP_NONE: return -1; // Fail code.
+      case SKIP_NONE: return (- 1); // Fail code.
       case SKIP_WHITESPACE:
         switch (c) {
           case ' ':
           case '\t':
           case '\r':
           case '\n': break;
-          default: return -1; // Fail code.
+          default: return (- 1); // Fail code.
         }
       case SKIP_ALL:
         break;
@@ -98,20 +95,20 @@ void Stream::setTimeout(unsigned long timeout)  // sets the maximum number of mi
 // find returns true if the target string is found
 bool  Stream::find(const char *target)
 {
-  return findUntil(target, strlen(target), NULL, 0);
+  return (findUntil(target, strlen(target), NULL, 0));
 }
 
 // reads data from the stream until the target string of given length is found
 // returns true if target string is found, false if timed out
 bool Stream::find(const char *target, size_t length)
 {
-  return findUntil(target, length, NULL, 0);
+  return (findUntil(target, length, NULL, 0));
 }
 
 // as find but search ends if the terminator string is found
 bool  Stream::findUntil(const char *target, const char *terminator)
 {
-  return findUntil(target, strlen(target), terminator, strlen(terminator));
+  return (findUntil(target, strlen(target), terminator, strlen(terminator)));
 }
 
 // reads data from the stream until the target string of the given length is found
@@ -119,12 +116,12 @@ bool  Stream::findUntil(const char *target, const char *terminator)
 // returns true if target string is found, false if terminated or timed out
 bool Stream::findUntil(const char *target, size_t targetLen, const char *terminator, size_t termLen)
 {
-  if (terminator == NULL) {
+  if (terminator == nullptr) {
     MultiTarget t[1] = {{target, targetLen, 0}};
-    return findMulti(t, 1) == 0 ? true : false;
+    return (findMulti(t, 1) == 0 ? true : false);
   } else {
     MultiTarget t[2] = {{target, targetLen, 0}, {terminator, termLen, 0}};
-    return findMulti(t, 2) == 0 ? true : false;
+    return (findMulti(t, 2) == 0 ? true : false);
   }
 }
 
@@ -137,12 +134,11 @@ long Stream::parseInt(LookaheadMode lookahead, char ignore)
 {
   bool isNegative = false;
   long value = 0;
-  int c;
 
-  c = peekNextDigit(lookahead, false);
+  int c = peekNextDigit(lookahead, false);
   // ignore non numeric leading characters
   if (c < 0) {
-    return 0;  // zero returned if timeout
+    return (0);  // zero returned if timeout
   }
 
   do {
@@ -160,7 +156,7 @@ long Stream::parseInt(LookaheadMode lookahead, char ignore)
   if (isNegative) {
     value = -value;
   }
-  return value;
+  return (value);
 }
 
 // as parseInt but returns a floating point value
@@ -169,10 +165,9 @@ float Stream::parseFloat(LookaheadMode lookahead, char ignore)
   bool isNegative = false;
   bool isFraction = false;
   long value = 0;
-  int c;
   float fraction = 1.0;
 
-  c = peekNextDigit(lookahead, true);
+  int c = peekNextDigit(lookahead, true);
   // ignore non numeric leading characters
   if (c < 0) {
     return 0;  // zero returned if timeout
@@ -199,9 +194,9 @@ float Stream::parseFloat(LookaheadMode lookahead, char ignore)
     value = -value;
   }
   if (isFraction) {
-    return value * fraction;
+    return (value * fraction);
   } else {
-    return value;
+    return (value);
   }
 }
 
@@ -214,11 +209,11 @@ size_t Stream::readBytes(char *buffer, size_t length)
 {
   size_t count = 0;
   while (count < length) {
-    int c = timedRead();
+    const int c = timedRead();
     if (c < 0) {
       break;
     }
-    *buffer++ = (char)c;
+    *buffer++ = static_cast<char>(c);
     count++;
   }
   return count;
@@ -236,11 +231,11 @@ size_t Stream::readBytesUntil(char terminator, char *buffer, size_t length)
   }
   size_t index = 0;
   while (index < length) {
-    int c = timedRead();
+    const int c = timedRead();
     if (c < 0 || c == terminator) {
       break;
     }
-    *buffer++ = (char)c;
+    *buffer++ = static_cast<char>(c);
     index++;
   }
   return index; // return number of characters, not including null terminator
@@ -251,7 +246,7 @@ String Stream::readString()
   String ret;
   int c = timedRead();
   while (c >= 0) {
-    ret += (char)c;
+    ret += static_cast<char>(c);
     c = timedRead();
   }
   return ret;
@@ -262,7 +257,7 @@ String Stream::readStringUntil(char terminator)
   String ret;
   int c = timedRead();
   while (c >= 0 && c != terminator) {
-    ret += (char)c;
+    ret += static_cast<char>(c);
     c = timedRead();
   }
   return ret;
@@ -278,17 +273,17 @@ int Stream::findMulti(struct Stream::MultiTarget *targets, int tCount)
     }
   }
 
-  while (1) {
-    int c = timedRead();
+  while (true) {
+    const int c = timedRead();
     if (c < 0) {
-      return -1;
+      return (- 1);
     }
 
     for (struct MultiTarget *t = targets; t < targets + tCount; ++t) {
       // the simple case is if we match, deal with that first.
       if (c == t->str[t->index]) {
         if (++t->index == t->len) {
-          return t - targets;
+          return (t - targets);
         } else {
           continue;
         }
@@ -302,7 +297,7 @@ int Stream::findMulti(struct Stream::MultiTarget *targets, int tCount)
         continue;
       }
 
-      int origIndex = t->index;
+      const int origIndex = t->index;
       do {
         --t->index;
         // first check if current char works against the new current index
@@ -317,7 +312,7 @@ int Stream::findMulti(struct Stream::MultiTarget *targets, int tCount)
         }
 
         // otherwise we need to check the rest of the found string
-        int diff = origIndex - t->index;
+        const int diff = origIndex - t->index;
         size_t i;
         for (i = 0; i < t->index; ++i) {
           if (t->str[i] != t->str[i + diff]) {
@@ -337,5 +332,5 @@ int Stream::findMulti(struct Stream::MultiTarget *targets, int tCount)
     }
   }
   // unreachable
-  return -1;
+  return (- 1);
 }

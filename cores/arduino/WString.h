@@ -23,9 +23,9 @@
 #define String_class_h
 #ifdef __cplusplus
 
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
+#include <cstdlib>
+#include <cstring>
+#include <cctype>
 #include <avr/pgmspace.h>
 
 // When compiling programs with this class, the following gcc parameters
@@ -77,9 +77,10 @@ class String {
     // is left unchanged).  reserve(0), if successful, will validate an
     // invalid string (i.e., "if (s)" will be true afterwards)
     unsigned char reserve(unsigned int size);
-    inline unsigned int length(void) const
+
+    [[nodiscard]] inline unsigned int length(void) const
     {
-      return len;
+      return (len);
     }
 
     // creates a copy of the assigned value.  if the value is null or
@@ -183,38 +184,39 @@ class String {
     // comparison (only works w/ Strings and "strings")
     operator StringIfHelperType() const
     {
-      return buffer ? &String::StringIfHelper : 0;
+      return (buffer ? &String::StringIfHelper : 0);
     }
-    int compareTo(const String &s) const;
-    unsigned char equals(const String &s) const;
+
+    [[nodiscard]] int compareTo(const String &s) const;
+    [[nodiscard]] unsigned char equals(const String &s) const;
     unsigned char equals(const char *cstr) const;
     unsigned char operator == (const String &rhs) const
     {
-      return equals(rhs);
+      return (equals(rhs));
     }
     unsigned char operator == (const char *cstr) const
     {
-      return equals(cstr);
+      return (equals(cstr));
     }
     unsigned char operator != (const String &rhs) const
     {
-      return !equals(rhs);
+      return (!equals(rhs));
     }
     unsigned char operator != (const char *cstr) const
     {
-      return !equals(cstr);
+      return (!equals(cstr));
     }
     unsigned char operator < (const String &rhs) const;
     unsigned char operator > (const String &rhs) const;
     unsigned char operator <= (const String &rhs) const;
     unsigned char operator >= (const String &rhs) const;
-    unsigned char equalsIgnoreCase(const String &s) const;
-    unsigned char startsWith(const String &prefix) const;
-    unsigned char startsWith(const String &prefix, unsigned int offset) const;
-    unsigned char endsWith(const String &suffix) const;
+    [[nodiscard]] unsigned char equalsIgnoreCase(const String &s) const;
+    [[nodiscard]] unsigned char startsWith(const String &prefix) const;
+    [[nodiscard]] unsigned char startsWith(const String &prefix, unsigned int offset) const;
+    [[nodiscard]] unsigned char endsWith(const String &suffix) const;
 
     // character access
-    char charAt(unsigned int index) const;
+    [[nodiscard]] char charAt(unsigned int index) const;
     void setCharAt(unsigned int index, char c);
     char operator [](unsigned int index) const;
     char &operator [](unsigned int index);
@@ -223,7 +225,8 @@ class String {
     {
       getBytes((unsigned char *)buf, bufsize, index);
     }
-    const char *c_str() const
+
+    [[nodiscard]] const char *c_str() const
     {
       return buffer;
     }
@@ -235,29 +238,32 @@ class String {
     {
       return buffer + length();
     }
-    const char *begin() const
+
+    [[nodiscard]] const char *begin() const
     {
       return c_str();
     }
-    const char *end() const
+
+    [[nodiscard]] const char *end() const
     {
       return c_str() + length();
     }
 
     // search
-    int indexOf(char ch) const;
-    int indexOf(char ch, unsigned int fromIndex) const;
-    int indexOf(const String &str) const;
-    int indexOf(const String &str, unsigned int fromIndex) const;
-    int lastIndexOf(char ch) const;
-    int lastIndexOf(char ch, unsigned int fromIndex) const;
-    int lastIndexOf(const String &str) const;
-    int lastIndexOf(const String &str, unsigned int fromIndex) const;
-    String substring(unsigned int beginIndex) const
+    [[nodiscard]] int indexOf(char ch) const;
+    [[nodiscard]] int indexOf(char ch, unsigned int fromIndex) const;
+    [[nodiscard]] int indexOf(const String &str) const;
+    [[nodiscard]] int indexOf(const String &str, unsigned int fromIndex) const;
+    [[nodiscard]] int lastIndexOf(char ch) const;
+    [[nodiscard]] int lastIndexOf(char ch, unsigned int fromIndex) const;
+    [[nodiscard]] int lastIndexOf(const String &str) const;
+    [[nodiscard]] int lastIndexOf(const String &str, unsigned int fromIndex) const;
+
+    [[nodiscard]] String substring(unsigned int beginIndex) const
     {
       return substring(beginIndex, len);
     };
-    String substring(unsigned int beginIndex, unsigned int endIndex) const;
+    [[nodiscard]] String substring(unsigned int beginIndex, unsigned int endIndex) const;
 
     // modification
     void replace(char find, char replace);
@@ -269,9 +275,9 @@ class String {
     void trim(void);
 
     // parsing/conversion
-    long toInt(void) const;
-    float toFloat(void) const;
-    double toDouble(void) const;
+    [[nodiscard]] long toInt(void) const;
+    [[nodiscard]] float toFloat(void) const;
+    [[nodiscard]] double toDouble(void) const;
 
   protected:
     char *buffer;         // the actual char array

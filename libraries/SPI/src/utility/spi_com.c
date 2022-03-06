@@ -39,6 +39,10 @@
 #include "core_debug.h"
 #include "stm32_def.h"
 #include "utility/spi_com.h"
+
+#include <stdbool.h>
+#include <stdint.h>
+
 #include "PinAF_STM32F1.h"
 #include "pinconfig.h"
 #include "stm32yyxx_ll_spi.h"
@@ -478,13 +482,13 @@ spi_status_e spi_transfer(spi_t *obj, uint8_t *tx_buffer, uint8_t *rx_buffer,
                           uint16_t len, uint32_t Timeout, bool skipReceive)
 {
   spi_status_e ret = SPI_OK;
-  uint32_t tickstart, size = len;
+  uint32_t size = len;
   SPI_TypeDef *_SPI = obj->handle.Instance;
 
   if ((obj == NULL) || (len == 0) || (Timeout == 0U)) {
     return Timeout > 0U ? SPI_ERROR : SPI_TIMEOUT;
   }
-  tickstart = HAL_GetTick();
+  uint32_t tickstart = HAL_GetTick();
 
 #if defined(SPI_CR2_TSIZE)
   /* Start transfer */

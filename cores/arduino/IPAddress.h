@@ -20,7 +20,7 @@
 #ifndef IPAddress_h
 #define IPAddress_h
 
-#include <stdint.h>
+#include <cstdint>
 #include "Printable.h"
 #include "WString.h"
 
@@ -81,7 +81,7 @@ class IPAddress : public Printable {
     IPAddress &operator=(const uint8_t *address);
     IPAddress &operator=(uint32_t address);
 
-    virtual size_t printTo(Print &p) const;
+    size_t printTo(Print &p) const override;
 
     friend class EthernetClass;
     friend class UDP;

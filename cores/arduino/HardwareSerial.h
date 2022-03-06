@@ -24,11 +24,10 @@
 #ifndef HardwareSerial_h
 #define HardwareSerial_h
 
-#include <inttypes.h>
+#include <cinttypes>
 
 #include "Stream.h"
 #include "uart.h"
-#include "stm32/PinNames.h"
 
 // Define constants and variables for buffering incoming serial data.  We're
 // using a ring buffer (I think), in which head is the index of the location
@@ -122,11 +121,11 @@ class HardwareSerial : public Stream {
     }
     void begin(unsigned long, uint8_t);
     void end();
-    virtual int available(void);
-    virtual int peek(void);
-    virtual int read(void);
-    int availableForWrite(void);
-    virtual void flush(void);
+    int available(void) override;
+    int peek(void) override;
+    int read(void) override;
+    int availableForWrite(void) override;
+    void flush(void) override;
     virtual size_t write(uint8_t);
     inline size_t write(unsigned long n)
     {
@@ -140,7 +139,7 @@ class HardwareSerial : public Stream {
     {
       return write((uint8_t)n);
     }
-    inline size_t write(int n) //override
+    inline size_t write(int n) override
     {
       return write((uint8_t)n);
     }
@@ -167,7 +166,7 @@ class HardwareSerial : public Stream {
     // Enable half-duplex mode by setting the Rx pin to NC
     // This needs to be done before the call to begin()
     void setHalfDuplex(void);
-    bool isHalfDuplex(void) const;
+    [[nodiscard]] bool isHalfDuplex(void) const;
     void enableHalfDuplexRx(void);
 
     friend class STM32LowPower;
