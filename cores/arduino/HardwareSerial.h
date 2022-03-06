@@ -28,6 +28,7 @@
 
 #include "Stream.h"
 #include "uart.h"
+#include "stm32/PinNames.h"
 
 // Define constants and variables for buffering incoming serial data.  We're
 // using a ring buffer (I think), in which head is the index of the location
@@ -139,7 +140,7 @@ class HardwareSerial : public Stream {
     {
       return write((uint8_t)n);
     }
-    inline size_t write(int n)
+    inline size_t write(int n) //override
     {
       return write((uint8_t)n);
     }
