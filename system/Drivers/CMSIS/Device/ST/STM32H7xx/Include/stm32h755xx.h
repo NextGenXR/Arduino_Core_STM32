@@ -216,6 +216,9 @@ typedef enum
 
 #define SMPS       /*!< Switched mode power supply feature */
 
+#if !defined(CORE_CM4) && !defined(CORE_CM7)
+#define CORE_CM7
+#endif
 
 
 /**
