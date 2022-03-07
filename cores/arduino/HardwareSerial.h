@@ -139,7 +139,7 @@ class HardwareSerial : public Stream {
     {
       return write((uint8_t)n);
     }
-    inline size_t write(int n) override
+    inline size_t write(int n) /* override*/
     {
       return write((uint8_t)n);
     }
