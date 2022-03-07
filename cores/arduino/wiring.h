@@ -20,11 +20,19 @@
 #ifndef _WIRING_H_
 #define _WIRING_H_
 
+#ifdef __cplusplus
 #include <cstdint>
 #include <cstdlib>
-
 #include <cstring>
 #include <cmath>
+#else
+#include <stdint.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#endif
+
+
 
 #include "avr/dtostrf.h"
 #include "binary.h"
