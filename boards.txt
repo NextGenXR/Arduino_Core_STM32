@@ -129,6 +129,40 @@ Nucleo_144.menu.pnum.NUCLEO_H743ZI2.build.variant=STM32H7xx/H742Z(G-I)T_H743Z(G-
 Nucleo_144.menu.pnum.NUCLEO_H743ZI2.build.variant_h=variant_NUCLEO_H743ZI.h
 Nucleo_144.menu.pnum.NUCLEO_H743ZI2.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
 
+# NUCLEO_H755ZIQ board
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ=Nucleo H755ZIQ M7
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.node=NOD_H755ZIQ
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.upload.maximum_size=2097152
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.upload.maximum_data_size=524288
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.mcu=cortex-m7
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.extra_flags= -DCORE_CM7 -D{build.product_line}
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.board=NUCLEO_H755ZIQ
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.series=STM32H7xx
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.product_line=STM32H755xx
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.variant=STM32H7xx/H755ZIQ
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.variant_h=variant_NUCLEO_H755ZIQ.h
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
+# Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
+
+
+# NUCLEO_H755ZIQ M4 board
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4=Nucleo H755ZIQ M4
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.node=NOD_H755ZIQ
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.upload.maximum_size=2097152
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.upload.maximum_data_size=524288
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.mcu=cortex-m4
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.extra_flags= -DCORE_CM4 -D{build.product_line}
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.board=NUCLEO_H755ZIQ_M4
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.series=STM32H7xx
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.product_line=STM32H755xx
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.variant=STM32H7xx/H755ZIQ
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.variant_h=variant_NUCLEO_H755ZIQ_M4.h
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.cmsis_lib_gcc=arm_cortexM4lfsp_math
+# Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
+
+
 # NUCLEO_L496ZG board
 Nucleo_144.menu.pnum.NUCLEO_L496ZG=Nucleo L496ZG
 Nucleo_144.menu.pnum.NUCLEO_L496ZG.node=NODE_L496ZG

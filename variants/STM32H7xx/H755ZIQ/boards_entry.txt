@@ -1,0 +1,13 @@
+# This file help to add generic board entry.
+# upload.maximum_size and product_line have to be verified
+# and changed if needed.
+# See: https://github.com/stm32duino/wiki/wiki/Add-a-new-variant-%28board%29
+
+# Generic H755ZIQx
+GenH7.menu.pnum.GENERIC_H755ZIQX=Generic H755ZIQx
+GenH7.menu.pnum.GENERIC_H755ZIQX.upload.maximum_size=2097152
+GenH7.menu.pnum.GENERIC_H755ZIQX.upload.maximum_data_size=884736
+GenH7.menu.pnum.GENERIC_H755ZIQX.build.board=GENERIC_H755ZIQX
+GenH7.menu.pnum.GENERIC_H755ZIQX.build.product_line=STM32H755xx
+GenH7.menu.pnum.GENERIC_H755ZIQX.build.variant=STM32H7xx/H755ZIQ
+
