@@ -18,10 +18,16 @@
 #ifndef _PINS_ARDUINO_H_
 #define _PINS_ARDUINO_H_  // NOLINT(clang-diagnostic-reserved-macro-identifier, bugprone-reserved-identifier)
 
+#ifdef __cplusplus
 #include <cstdbool>
 // ReSharper disable once CppUnusedIncludeDirective
 #include <cstdlib> /* Required for static_assert */  // NOLINT(clang-diagnostic-pragma-pack)
 #include <cstdint>
+#else
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stdint.h>
+#endif
 #include "stm32/PortNames.h"
 
 #include "variant.h"
