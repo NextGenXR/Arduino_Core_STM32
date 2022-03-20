@@ -25,7 +25,7 @@
 #include "stm32/digital_io.h"
 #include "stm32/PinNamesTypes.h"
 
-//#if defined(HAL_TIM_MODULE_ENABLED) && defined(TIMER_TONE) && !defined(HAL_TIM_MODULE_ONLY)
+#if defined(HAL_TIM_MODULE_ENABLED) && defined(TIMER_TONE) && !defined(HAL_TIM_MODULE_ONLY)
 
 #define MAX_FREQ  65535
 
@@ -134,6 +134,7 @@ void noTone(uint8_t _pin, bool destruct)
     }
   }
 }
+
 #else
 #warning "TIMER_TONE or HAL_TIM_MODULE_ENABLED not defined"
 void tone(uint8_t _pin, unsigned int frequency, unsigned long duration)

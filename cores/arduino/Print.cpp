@@ -22,6 +22,8 @@
 #include <cmath>
 #include "Arduino.h"
 
+using namespace std;
+
 #include "Print.h"
 
 #if defined (VIRTIO_LOG)

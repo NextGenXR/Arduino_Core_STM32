@@ -12,9 +12,16 @@
  */
 #include "core_debug.h"
 #include "lock_resource.h"
+
+#if defined(HAL_UART_MODULE_ENABLED)
 #include "uart.h"
+#endif
+
 #include "Arduino.h"
+
+#ifdef STM32F1xx
 #include "PinAF_STM32F1.h"
+#endif
 
 #ifdef __cplusplus
 extern "C" {

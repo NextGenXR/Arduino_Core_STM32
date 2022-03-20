@@ -38,7 +38,7 @@ extern "C" {
 
 extern GPIO_TypeDef *GPIOPort[];
 
-using PortName = enum {
+typedef enum {
   FirstPort = 0x00,
   PortA = FirstPort,
   PortB,
@@ -74,7 +74,7 @@ using PortName = enum {
 #endif
   PortEND,
   LastPort = PortEND - 1
-};
+}PortName;
 
 #define MAX_NB_PORT (LastPort-FirstPort+1)
 

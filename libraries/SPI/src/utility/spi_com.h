@@ -40,7 +40,9 @@
 #define __SPI_COM_H
 
 /* Includes ------------------------------------------------------------------*/
-#include <cstdint>
+//#include <cstdint>
+#include <stdint.h>
+
 
 #include "stm32_def.h"
 #include "PeripheralPins.h"
