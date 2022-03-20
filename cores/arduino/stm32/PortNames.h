@@ -28,7 +28,7 @@
  *******************************************************************************
  */
 #ifndef _PORTNAMES_H
-#define _PORTNAMES_H  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
+#define _PORTNAMES_H  /* NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier) */
 
 #include "stm32_def.h"
 

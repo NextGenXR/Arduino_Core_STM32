@@ -20,7 +20,7 @@
 
 #include "stm32/PinNames.h"
 #include "stm32/PinNamesTypes.h"
-#include <cstdbool>
+#include <stdbool.h>
 
 #ifdef __cplusplus
 extern "C" {

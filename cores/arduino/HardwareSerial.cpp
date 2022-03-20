@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include "Arduino.h"
 #include "HardwareSerial.h"
+#include "pins_arduino_digital.h"
 
 #if defined(HAL_UART_MODULE_ENABLED) && !defined(HAL_UART_MODULE_ONLY)
 #if defined(HAVE_HWSERIAL1) || defined(HAVE_HWSERIAL2) || defined(HAVE_HWSERIAL3) ||\
@@ -125,14 +126,9 @@ HardwareSerial::HardwareSerial(PinName _rx, PinName _tx, PinName _rts, PinName _
   init(_rx, _tx, _rts, _cts);
 }
 
-HardwareSerial::HardwareSerial(void *peripheral, HalfDuplexMode_t halfDuplex)
+
+HardwareSerial::HardwareSerial(void* peripheral, HalfDuplexMode_t halfDuplex)
 {
-
-  void HardwareSerial::begin(unsigned long, uint8_t)
-  {
-
-  }
-
   // If PIN_SERIALy_RX is not defined assume half-duplex
   _serial.pin_rx = NC;
   // If Serial is defined in variant set
