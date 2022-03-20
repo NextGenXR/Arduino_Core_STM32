@@ -10,7 +10,12 @@
  *
  *******************************************************************************
  */
-#if defined(ARDUINO_H755ZIQX)
+
+#include <stm32h7xx_hal_rcc.h>
+#include "clock.h"
+
+
+ //#if defined(ARDUINO_H755ZIQX)
 #include "pins_arduino.h"
 
 // Digital PinName array
@@ -143,4 +148,4 @@ const uint32_t analogInputPin[] = {
   98  // A22, PC3_C
 };
 
-#endif /* ARDUINO_GENERIC_* */
+//#endif /* ARDUINO_GENERIC_* */

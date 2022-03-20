@@ -142,8 +142,9 @@ Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.product_line=STM32H755xx
 Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.variant=STM32H7xx/H755ZIQ
 Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.variant_h=variant_NUCLEO_H755ZIQ.h
 Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
-Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.extra_flags= -DCORE_CM7 -D{build.product_line} -D{build.series}
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.extra_flags= -DCORE_CM7 -D{build.product_line} -D{build.series} -DARDUINO_H755ZIQX
 # Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ.build.ldscript=STM32H755ZITX_FLASH.ld
 
 
 # NUCLEO_H755ZIQ M4 board
@@ -159,8 +160,9 @@ Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.product_line=STM32H755xx
 Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.variant=STM32H7xx/H755ZIQ
 Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.variant_h=variant_NUCLEO_H755ZIQ_M4.h
 Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.cmsis_lib_gcc=arm_cortexM4lfsp_math
-Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.extra_flags= -DCORE_CM4 -D{build.product_line} -D{build.series}
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.extra_flags= -DCORE_CM4 -D{build.product_line} -D{build.series} 
 # Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
+Nucleo_144.menu.pnum.NUCLEO_H755ZIQ-4.build.ldscript=STM32H755ZITX_FLASH_M4.ld
 
 
 # NUCLEO_L496ZG board
