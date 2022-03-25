@@ -19,15 +19,16 @@
 #ifndef _WIRING_CONSTANTS_
 #define _WIRING_CONSTANTS_
 
-#include <stdbool.h>
-#include <stdint.h>
-
 #ifdef __cplusplus
-  #include <algorithm>
+#include <cstdint>
+#include <cstdbool>
+#include <algorithm>
   using std::min;
   using std::max;
 #else // C
-  #include <stdlib.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdlib.h>
   #ifndef abs
     #define abs(x) ((x)>0?(x):-(x))
   #endif // abs
