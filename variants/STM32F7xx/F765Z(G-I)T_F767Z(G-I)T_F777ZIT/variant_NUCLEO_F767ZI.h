@@ -222,7 +222,9 @@
 #endif
 
 // Value of the External oscillator in Hz
+#if !defined(HSE_VALUE)
 #define HSE_VALUE               8000000U
+#endif
 
 /* Extra HAL modules */
 #if !defined(HAL_DAC_MODULE_DISABLED)
