@@ -1,6 +1,9 @@
 #ifndef _STM32_DEF_
 #define _STM32_DEF_
 
+#if __has_include(<main.h>)
+#include <main.h>
+#endif
 
 /**
  * @brief STM32 core version number
@@ -20,7 +23,9 @@
                                         |(STM32_CORE_VERSION_PATCH << 8U )\
                                         |(STM32_CORE_VERSION_EXTRA))
 
+#ifndef USE_HAL_DRIVER
 #define USE_HAL_DRIVER
+#endif
 
 #if defined(STM32F0xx)
   #include "stm32f0xx.h"

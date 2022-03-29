@@ -1,6 +1,11 @@
 #ifndef _STM32_DEF_BUILD_
 #define _STM32_DEF_BUILD_
 
+#if __has_include(<main.h>)
+#include <main.h>
+#endif
+
+
 #if !defined(CMSIS_STARTUP_FILE) && !defined(CUSTOM_STARTUP_FILE)
   #if defined(STM32F030x6)
     #define CMSIS_STARTUP_FILE "startup_stm32f030x6.s"

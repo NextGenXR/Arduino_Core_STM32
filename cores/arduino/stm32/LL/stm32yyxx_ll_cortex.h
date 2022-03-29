@@ -16,13 +16,15 @@
 #elif STM32F4xx
   #include "stm32f4xx_ll_cortex.h"
 #elif STM32F7xx
-  #include "stm32f7xx_ll_cortex.h"
+  	#include "stm32f7xx_ll_cortex.h"
+	#include "stm32f7xx_hal_cortex.h"
 #elif STM32G0xx
   #include "stm32g0xx_ll_cortex.h"
 #elif STM32G4xx
   #include "stm32g4xx_ll_cortex.h"
 #elif STM32H7xx
   #include "stm32h7xx_ll_cortex.h"
+  #include "stm32h7xx_hal_cortex.h"
 #elif STM32L0xx
   #include "stm32l0xx_ll_cortex.h"
 #elif STM32L1xx
