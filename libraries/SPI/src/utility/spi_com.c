@@ -38,7 +38,10 @@
 #include "wiring_time.h"
 #include "core_debug.h"
 #include "stm32_def.h"
-#include "utility/spi_com.h"
+
+#if __has_include("utility/spi_com.h")
+#include <spi_com.h>
+#endif
 
 #include <stdbool.h>
 #include <stdint.h>
