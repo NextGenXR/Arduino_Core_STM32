@@ -20,6 +20,10 @@
 #ifndef STM32H7xx_LL_GPIO_H
 #define STM32H7xx_LL_GPIO_H
 
+#if __has_include(<main.h>)
+#include <main.h>
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif

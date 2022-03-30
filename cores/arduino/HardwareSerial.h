@@ -24,6 +24,12 @@
 #ifndef HardwareSerial_h
 #define HardwareSerial_h
 
+#if __has_include(<main.h>)
+#include <main.h>
+#endif
+
+#include "pins_arduino.h"
+
 #include <cinttypes>
 
 #include "Stream.h"

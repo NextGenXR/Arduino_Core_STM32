@@ -18,6 +18,8 @@
 #include "PinAF_STM32F1.h"
 #include "lock_resource.h"
 #include "stm32yyxx_ll_gpio.h"
+#include "PinNames.h"
+
 
 static inline void pin_DisconnectDebug(PinName pin)
 {
