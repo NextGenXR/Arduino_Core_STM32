@@ -39,6 +39,8 @@
 #ifndef __SPI_COM_H
 #define __SPI_COM_H
 
+#ifdef HAL_SPI_MODULE_ENABLED
+
 /* Includes ------------------------------------------------------------------*/
 //#include <cstdint>
 #include <stdint.h>
@@ -56,7 +58,7 @@ extern "C" {
 /**
  * \brief SPI Config and Data Structure
  */
-struct spi_s {
+struct spi_s{
   SPI_HandleTypeDef handle;
   SPI_TypeDef *spi;
   PinName pin_miso;
@@ -68,9 +70,10 @@ struct spi_s {
   // See https://github.com/stm32duino/Arduino_Core_STM32/issues/1294
   uint32_t disable_delay;
 #endif
-};
+} spi_s;
 
-using spi_t = struct spi_s;
+//using spi_t = struct spi_s;
+typedef struct spi_s spi_t;
 
 
 ///@brief specifies the SPI speed bus in HZ.
@@ -100,11 +103,11 @@ typedef enum {
 } spi_mode_e;
 
 ///@brief SPI errors
-using spi_status_e = enum {
+typedef enum {
   SPI_OK = 0,
   SPI_TIMEOUT = 1,
   SPI_ERROR = 2
-};
+} spi_status_e;
 
 /* Exported functions ------------------------------------------------------- */
 void spi_init(spi_t *obj, uint32_t speed, spi_mode_e mode, uint8_t msb);
@@ -117,6 +120,8 @@ uint32_t spi_getClkFreq(spi_t *obj);
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* #ifdef HAL_SPI_MODULE_ENABLED */
 
 #endif /* __SPI_COM_H */
 

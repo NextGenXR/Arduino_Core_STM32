@@ -40,6 +40,11 @@
 #include "wiring_constants.h"
 #include "PinNames.h"
 #include "pinmap.h"
+
+#ifndef LL_GPIO_MODULE_ENABLED
+#define LL_GPIO_MODULE_ENABLED
+#endif
+
 #include "stm32yyxx_ll_gpio.h"
 
 #ifdef __cplusplus

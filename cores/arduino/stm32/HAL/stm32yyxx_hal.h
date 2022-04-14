@@ -6,10 +6,12 @@
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 
-/* Include Low Layers drivers */
+/* Include HAL drivers */
+
+#ifdef USE_ALL_INCLUDES
+
 #include "stm32yyxx_hal_adc.h"
 #include "stm32yyxx_hal_bdma.h"
-#include "stm32yyxx_hal_bus.h"
 #include "stm32yyxx_hal_comp.h"
 #include "stm32yyxx_hal_cordic.h"
 #include "stm32yyxx_hal_cortex.h"
@@ -54,5 +56,9 @@
 #include "stm32yyxx_hal_usb.h"
 #include "stm32yyxx_hal_utils.h"
 #include "stm32yyxx_hal_wwdg.h"
+
+#endif
+
+
 #pragma GCC diagnostic pop
 #endif /* _STM32YYXX_hal_H_ */

@@ -37,6 +37,7 @@
   */
 #include "interrupt.h"
 #include "lock_resource.h"
+#define LL_EXTI_MODULE_ENABLED
 #include "stm32yyxx_ll_exti.h"
 #if !defined(HAL_EXTI_MODULE_DISABLED)
 

@@ -21,9 +21,34 @@
 #ifndef __BACKUP_H
 #define __BACKUP_H
 
+#ifdef USE_BACKUP
+
 /* Includes ------------------------------------------------------------------*/
+
+#if __has_include(<main.h>)
+ #include <main.h>
+#endif
+
 #include "stm32_def.h"
-#include "stm32yyxx_ll_rtc.h"
+
+#ifndef LL_RTC_MODULE_ENABLED
+#define LL_RTC_MODULE_ENABLED
+#endif
+
+#ifdef HAL_RTC_MODULE_ENABLED
+#define HAL_RTC_MODULE_ENABLED
+#endif
+
+#ifdef HAL_RCC_MODULE_ENABLED
+#define HAL_RCC_MODULE_ENABLED
+#endif
+
+#include <stm32yyxx_ll_rtc.h>
+#include <stm32yyxx_hal_rcc.h>
+
+#if __has_include(<stm32f7xx_hal_rcc_ex.h>)
+ #include <stm32f7xx_hal_rcc_ex.h>
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -173,6 +198,8 @@ static inline void readBackupSRAM(uint32_t offset, uint32_t *data, uint32_t leng
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif /* __BACKUP_H */

@@ -19,6 +19,7 @@
 #include "lock_resource.h"
 #include "stm32yyxx_ll_gpio.h"
 #include "PinNames.h"
+#include "pinmap.h"
 
 
 static inline void pin_DisconnectDebug(PinName pin)

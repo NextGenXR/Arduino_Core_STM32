@@ -26,6 +26,10 @@
 #include "Arduino.h"
 #include "HardwareTimer.h"
 
+ #if __has_include(<main.h>)
+ #include <main.h>
+ #endif
+
 #if defined(HAL_TIM_MODULE_ENABLED) && !defined(HAL_TIM_MODULE_ONLY)
 
 /* Private Defines */

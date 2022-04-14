@@ -41,6 +41,10 @@
  extern "C" {
 #endif /* __cplusplus */
 
+#if __has_include(<main.h>)
+#include <main.h>
+#endif
+
 /** @addtogroup Library_configuration_section
   * @{
   */
@@ -152,17 +156,24 @@
 /** @addtogroup Exported_types
   * @{
   */
-typedef enum
-{
-  RESET = 0U,
-  SET = !RESET
-} FlagStatus, ITStatus;
 
 typedef enum
 {
   DISABLE = 0U,
   ENABLE = !DISABLE
 } FunctionalState;
+
+typedef enum
+{
+  RESET = 0U,
+  SET = !RESET
+} FlagStatus;
+
+typedef FlagStatus ITStatus;
+
+
+
+
 #define IS_FUNCTIONAL_STATE(STATE) (((STATE) == DISABLE) || ((STATE) == ENABLE))
 
 typedef enum

@@ -1,6 +1,11 @@
 #ifndef __STM32YYxx_HAL_CONF_H
 #define __STM32YYxx_HAL_CONF_H
 
+
+#if __has_include(<stm32yyxx_hal_conf.h>)
+#include <stm32yyxx_hal_conf.h>
+#else
+
 /*
  * Mandatory HAL modules
  */
@@ -171,6 +176,8 @@
   HAL_TSC_MODULE_ENABLED
   HAL_USART_MODULE_ENABLED
   HAL_WWDG_MODULE_ENABLED
+#endif
+
 #endif
 
 #endif /* __STM32YYxx_HAL_CONF_H */

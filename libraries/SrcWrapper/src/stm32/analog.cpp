@@ -10,15 +10,22 @@
  *
  *******************************************************************************
  */
+
+#ifdef HAL_ADC_MODULE_ENABLED1
+
 #include "analog.h"
 #include "lock_resource.h"
 #include "stm32yyxx_ll_adc.h"
 #include "PinAF_STM32F1.h"
 
+ #if __has_include(<stm32f7xx_hal_dac.h>)
+ #include <stm32f7xx_hal_dac.h>
+ #endif
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 
 
 /* Private_Variables */
@@ -312,14 +319,14 @@ static uint32_t get_dac_channel(PinName pin)
       break;
 #ifdef DAC_CHANNEL_2
     case 2:
-      channel = DAC_CHANNEL_2;
+      channel = DAC1_CHANNEL_2;
       break;
 #endif
     default:
       channel = 0;
       break;
   }
-  return channel;
+  return (channel);
 }
 
 ////////////////////////// DAC INTERFACE FUNCTIONS /////////////////////////////
@@ -1097,6 +1104,8 @@ void pwm_stop(PinName pin)
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

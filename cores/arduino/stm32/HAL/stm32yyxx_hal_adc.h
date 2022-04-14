@@ -1,5 +1,8 @@
 #ifndef _STM32YYXX_hal_ADC_H_
 #define _STM32YYXX_hal_ADC_H_
+
+#ifdef HAL_ADC_MODULE_ENABLED
+
 /* LL raised several warnings, ignore them */
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -45,4 +48,7 @@
   #include "stm32wlxx_hal_adc.h"
 #endif
 #pragma GCC diagnostic pop
+
+#endif
+
 #endif /* _STM32YYXX_hal_ADC_H_ */

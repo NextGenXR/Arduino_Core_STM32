@@ -19,13 +19,13 @@
 #ifndef _WIRING_MATH_
 #define _WIRING_MATH_
 
-extern long random(long) ;
-extern long random(long, long) ;
+extern long int random(long int) ;
+extern long int random(long int, long int) ;
 extern void randomSeed(uint32_t dwSeed) ;
 extern long map(long, long, long, long, long) ;
 
-extern uint16_t makeWord(uint16_t w) ;
-extern uint16_t makeWord(uint8_t h, uint8_t l) ;
+extern uint16_t makeWord(uint16_t);
+extern uint16_t makeWord(uint8_t, uint8_t);
 
 #define word(...) makeWord(__VA_ARGS__)
 

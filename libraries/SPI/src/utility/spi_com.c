@@ -35,11 +35,16 @@
   *
   ******************************************************************************
   */
+
+
+
 #include "wiring_time.h"
 #include "core_debug.h"
 #include "stm32_def.h"
 
 #if __has_include("utility/spi_com.h")
+#include "utility/spi_com.h"
+#else
 #include <spi_com.h>
 #endif
 
@@ -49,6 +54,9 @@
 #include "PinAF_STM32F1.h"
 #include "pinconfig.h"
 #include "stm32yyxx_ll_spi.h"
+#include "stm32yyxx_hal_spi.h"
+
+#if defined(HAL_SPI_MODULE_ENABLED && HAL_MODULE_ENABLED)
 
 #ifdef __cplusplus
 extern "C" {
@@ -83,7 +91,7 @@ uint32_t spi_getClkFreqInst(SPI_TypeDef *spi_inst)
         spi_freq = HAL_RCC_GetPCLK2Freq();
       }
     }
-#endif // SPI1_BASE
+#endif /* SPI1_BASE */
 #if defined(SPI2_BASE)
     if (spi_inst == SPI2) {
 #if defined(RCC_PERIPHCLK_SPI2) || defined(RCC_PERIPHCLK_SPI123) ||\
@@ -102,7 +110,7 @@ uint32_t spi_getClkFreqInst(SPI_TypeDef *spi_inst)
         spi_freq = HAL_RCC_GetPCLK1Freq();
       }
     }
-#endif // SPI2_BASE
+#endif /* SPI2_BASE */
 #if defined(SPI3_BASE)
     if (spi_inst == SPI3) {
 #if defined(RCC_PERIPHCLK_SPI3) || defined(RCC_PERIPHCLK_SPI123) ||\
@@ -121,7 +129,7 @@ uint32_t spi_getClkFreqInst(SPI_TypeDef *spi_inst)
         spi_freq = HAL_RCC_GetPCLK1Freq();
       }
     }
-#endif // SPI3_BASE
+#endif /* SPI3_BASE */
 #if defined(SPI4_BASE)
     if (spi_inst == SPI4) {
 #if defined(RCC_PERIPHCLK_SPI4) || defined(RCC_PERIPHCLK_SPI45)
@@ -137,7 +145,7 @@ uint32_t spi_getClkFreqInst(SPI_TypeDef *spi_inst)
         spi_freq = HAL_RCC_GetPCLK2Freq();
       }
     }
-#endif // SPI4_BASE
+#endif /* SPI4_BASE */
 #if defined(SPI5_BASE)
     if (spi_inst == SPI5) {
 #if defined(RCC_PERIPHCLK_SPI5) || defined(RCC_PERIPHCLK_SPI45)
@@ -153,7 +161,7 @@ uint32_t spi_getClkFreqInst(SPI_TypeDef *spi_inst)
         spi_freq = HAL_RCC_GetPCLK2Freq();
       }
     }
-#endif // SPI5_BASE
+#endif * SPI5_BASE */
 #if defined(SPI6_BASE)
     if (spi_inst == SPI6) {
 #if defined(RCC_PERIPHCLK_SPI6)
@@ -165,7 +173,7 @@ uint32_t spi_getClkFreqInst(SPI_TypeDef *spi_inst)
         spi_freq = HAL_RCC_GetPCLK2Freq();
       }
     }
-#endif // SPI6_BASE
+#endif /* SPI6_BASE */
 #endif
   }
   return spi_freq;
@@ -231,7 +239,7 @@ void spi_init(spi_t *obj, uint32_t speed, spi_mode_e mode, uint8_t msb)
   uint32_t spi_freq = 0;
   uint32_t pull = 0;
 
-  // Determine the SPI to use
+  /* Determine the SPI to use */
   SPI_TypeDef *spi_mosi = pinmap_peripheral(obj->pin_mosi, PinMap_SPI_MOSI);
   SPI_TypeDef *spi_miso = pinmap_peripheral(obj->pin_miso, PinMap_SPI_MISO);
   SPI_TypeDef *spi_sclk = pinmap_peripheral(obj->pin_sclk, PinMap_SPI_SCLK);
@@ -248,13 +256,13 @@ void spi_init(spi_t *obj, uint32_t speed, spi_mode_e mode, uint8_t msb)
 
   obj->spi = pinmap_merge_peripheral(spi_data, spi_cntl);
 
-  // Are all pins connected to the same SPI instance?
+  /* Are all pins connected to the same SPI instance? */
   if (spi_data == NP || spi_cntl == NP || obj->spi == NP) {
     core_debug("ERROR: SPI pins mismatch\n");
     return;
   }
 
-  // Configure the SPI pins
+  /* Configure the SPI pins */
   if (obj->pin_ssel != NC) {
     handle->Init.NSS = SPI_NSS_HARD_OUTPUT;
   } else {
@@ -289,7 +297,7 @@ void spi_init(spi_t *obj, uint32_t speed, spi_mode_e mode, uint8_t msb)
   }
 
 #if defined(SPI_IFCR_EOTC)
-  // Compute disable delay as baudrate has been modified
+  /* Compute disable delay as baudrate has been modified */
   obj->disable_delay = compute_disable_delay(obj);
 #endif
 
@@ -338,7 +346,7 @@ void spi_init(spi_t *obj, uint32_t speed, spi_mode_e mode, uint8_t msb)
   pinmap_pinout(obj->pin_ssel, PinMap_SPI_SSEL);
 
 #if defined SPI1_BASE
-  // Enable SPI clock
+  /* Enable SPI clock */
   if (handle->Instance == SPI1) {
     __HAL_RCC_SPI1_CLK_ENABLE();
     __HAL_RCC_SPI1_FORCE_RESET();
@@ -409,7 +417,7 @@ void spi_deinit(spi_t *obj)
   HAL_SPI_DeInit(handle);
 
 #if defined SPI1_BASE
-  // Reset SPI and disable clock
+  /* Reset SPI and disable clock */
   if (handle->Instance == SPI1) {
     __HAL_RCC_SPI1_FORCE_RESET();
     __HAL_RCC_SPI1_RELEASE_RESET();
@@ -523,9 +531,9 @@ spi_status_e spi_transfer(spi_t *obj, uint8_t *tx_buffer, uint8_t *rx_buffer,
   }
 
 #if defined(SPI_IFCR_EOTC)
-  // Add a delay before disabling SPI otherwise last-bit/last-clock may be truncated
-  // See https://github.com/stm32duino/Arduino_Core_STM32/issues/1294
-  // Computed delay is half SPI clock
+  /* Add a delay before disabling SPI otherwise last-bit/last-clock may be truncated
+   See https://github.com/stm32duino/Arduino_Core_STM32/issues/1294
+   Computed delay is half SPI clock */
   delayMicroseconds(obj->disable_delay);
 
   /* Close transfer */
@@ -544,6 +552,8 @@ spi_status_e spi_transfer(spi_t *obj, uint8_t *tx_buffer, uint8_t *rx_buffer,
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
