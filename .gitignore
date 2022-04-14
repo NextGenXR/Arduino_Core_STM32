@@ -38,3 +38,5 @@ __pycache__/
 # VisualStudio
 .vs/*
 package_version.txt
+system/Middlewares/OpenAMP/libmetal/out
+system/Middlewares/OpenAMP/open-amp/out
