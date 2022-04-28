@@ -20,6 +20,8 @@
 #ifndef __IWATCHDOG_H__
 #define __IWATCHDOG_H__
 
+#ifdef LL_IWDG_MODULE_ENABLED
+
 #include "Arduino.h"
 
 #if !defined(IWDG) && defined(IWDG1)
@@ -53,4 +55,8 @@ class IWatchdogClass {
 };
 
 extern IWatchdogClass IWatchdog;
+
+#endif /* USE_LL */
+
 #endif /* __IWATCHDOG_H__ */
+
