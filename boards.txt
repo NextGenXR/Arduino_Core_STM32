@@ -3181,6 +3181,15 @@ GenG0.build.series=STM32G0xx
 GenG0.build.cmsis_lib_gcc=arm_cortexM0l_math
 GenG0.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial} -D__CORTEX_SC=0
 
+# AGAFIA SG0
+GenG0.menu.pnum.AGAFIA_SG0=AGAFIA SG0
+GenG0.menu.pnum.AGAFIA_SG0.upload.maximum_size=131072
+GenG0.menu.pnum.AGAFIA_SG0.upload.maximum_data_size=36864
+GenG0.menu.pnum.AGAFIA_SG0.build.board=AGAFIA_SG0
+GenG0.menu.pnum.AGAFIA_SG0.build.product_line=STM32G071xx
+GenG0.menu.pnum.AGAFIA_SG0.build.variant=STM32G0xx/G071C(6-8-B)(T-U)_G081CB(T-U)
+GenG0.menu.pnum.AGAFIA_SG0.build.variant_h=variant_{build.board}.h
+
 # Aurora One G030K8
 GenG0.menu.pnum.AURORA_ONE=Aurora One
 GenG0.menu.pnum.AURORA_ONE.upload.maximum_size=65536
@@ -5828,7 +5837,7 @@ BluesW.menu.pnum.SWAN_R5.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
 
 # Upload menu
 BluesW.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
-BluesW.menu.upload_method.swdMethod.upload.protocol=10
+BluesW.menu.upload_method.swdMethod.upload.protocol=0
 BluesW.menu.upload_method.swdMethod.upload.options=-g
 BluesW.menu.upload_method.swdMethod.upload.tool=stm32CubeProg
 
