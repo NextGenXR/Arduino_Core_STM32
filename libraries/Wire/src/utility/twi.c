@@ -848,6 +848,7 @@ i2c_status_e i2c_master_write(i2c_t *obj, uint8_t dev_address,
   uint32_t tickstart = HAL_GetTick();
   uint32_t delta = 0;
   uint32_t err = 0;
+  HAL_StatusTypeDef status = HAL_OK;
 
   /* When size is 0, this is usually an I2C scan / ping to check if device is there and ready */
   if (size == 0) {
@@ -856,12 +857,26 @@ i2c_status_e i2c_master_write(i2c_t *obj, uint8_t dev_address,
 #if defined(I2C_OTHER_FRAME)
     uint32_t XferOptions = obj->handle.XferOptions; // save XferOptions value, because handle can be modified by HAL, which cause issue in case of NACK from slave
 #endif
-
+    do {
 #if defined(I2C_OTHER_FRAME)
-    if (HAL_I2C_Master_Seq_Transmit_IT(&(obj->handle), dev_address, data, size, XferOptions) == HAL_OK) {
+      status = HAL_I2C_Master_Seq_Transmit_IT(&(obj->handle), dev_address, data, size, XferOptions);
 #else
-    if (HAL_I2C_Master_Transmit_IT(&(obj->handle), dev_address, data, size) == HAL_OK) {
+      status = HAL_I2C_Master_Transmit_IT(&(obj->handle), dev_address, data, size);
 #endif
+      // Ensure i2c ready
+      if (status == HAL_BUSY) {
+        delta = (HAL_GetTick() - tickstart);
+        if (delta > I2C_TIMEOUT_TICK) {
+          ret = I2C_BUSY;
+          break;
+        }
+      } else {
+        ret = (status == HAL_OK) ? I2C_OK : I2C_ERROR;
+      }
+    } while (status == HAL_BUSY);
+
+    if (ret == I2C_OK) {
+      tickstart = HAL_GetTick();
       // wait for transfer completion
       while ((HAL_I2C_GetState(&(obj->handle)) != HAL_I2C_STATE_READY) && (delta < I2C_TIMEOUT_TICK)) {
         delta = (HAL_GetTick() - tickstart);
@@ -926,16 +941,31 @@ i2c_status_e i2c_master_read(i2c_t *obj, uint8_t dev_address, uint8_t *data, uin
   uint32_t tickstart = HAL_GetTick();
   uint32_t delta = 0;
   uint32_t err = 0;
+  HAL_StatusTypeDef status = HAL_OK;
 
 #if defined(I2C_OTHER_FRAME)
   uint32_t XferOptions = obj->handle.XferOptions; // save XferOptions value, because handle can be modified by HAL, which cause issue in case of NACK from slave
 #endif
-
+  do {
 #if defined(I2C_OTHER_FRAME)
-  if (HAL_I2C_Master_Seq_Receive_IT(&(obj->handle), dev_address, data, size, XferOptions) == HAL_OK) {
+    status = HAL_I2C_Master_Seq_Receive_IT(&(obj->handle), dev_address, data, size, XferOptions);
 #else
-  if (HAL_I2C_Master_Receive_IT(&(obj->handle), dev_address, data, size) == HAL_OK) {
+    status = HAL_I2C_Master_Receive_IT(&(obj->handle), dev_address, data, size);
 #endif
+    // Ensure i2c ready
+    if (status == HAL_BUSY) {
+      delta = (HAL_GetTick() - tickstart);
+      if (delta > I2C_TIMEOUT_TICK) {
+        ret = I2C_BUSY;
+        break;
+      }
+    } else {
+      ret = (status == HAL_OK) ? I2C_OK : I2C_ERROR;
+    }
+  } while (status == HAL_BUSY);
+
+  if (ret == I2C_OK) {
+    tickstart = HAL_GetTick();
     // wait for transfer completion
     while ((HAL_I2C_GetState(&(obj->handle)) != HAL_I2C_STATE_READY) && (delta < I2C_TIMEOUT_TICK)) {
       delta = (HAL_GetTick() - tickstart);
@@ -1044,24 +1074,22 @@ void HAL_I2C_AddrCallback(I2C_HandleTypeDef *hi2c, uint8_t TransferDirection, ui
     obj->slaveRxNbData = 0;
   }
 
-  if (AddrMatchCode == hi2c->Init.OwnAddress1) {
-    if (TransferDirection == I2C_DIRECTION_RECEIVE) {
-      obj->slaveMode = SLAVE_MODE_TRANSMIT;
+  if (TransferDirection == I2C_DIRECTION_RECEIVE) {
+    obj->slaveMode = SLAVE_MODE_TRANSMIT;
 
-      if (obj->i2c_onSlaveTransmit != NULL) {
-        obj->i2cTxRxBufferSize = 0;
-        obj->i2c_onSlaveTransmit(obj);
-      }
-      HAL_I2C_Slave_Seq_Transmit_IT(hi2c, (uint8_t *) obj->i2cTxRxBuffer,
-                                    obj->i2cTxRxBufferSize, I2C_LAST_FRAME);
-    } else {
-      obj->slaveRxNbData = 0;
-      obj->slaveMode = SLAVE_MODE_RECEIVE;
-      /*  We don't know in advance how many bytes will be sent by master so
-       *  we'll fetch one by one until master ends the sequence */
-      HAL_I2C_Slave_Seq_Receive_IT(hi2c, (uint8_t *) & (obj->i2cTxRxBuffer[obj->slaveRxNbData]),
-                                   1, I2C_NEXT_FRAME);
+    if (obj->i2c_onSlaveTransmit != NULL) {
+      obj->i2cTxRxBufferSize = 0;
+      obj->i2c_onSlaveTransmit(obj);
     }
+    HAL_I2C_Slave_Seq_Transmit_IT(hi2c, (uint8_t *) obj->i2cTxRxBuffer,
+                                  obj->i2cTxRxBufferSize, I2C_LAST_FRAME);
+  } else {
+    obj->slaveRxNbData = 0;
+    obj->slaveMode = SLAVE_MODE_RECEIVE;
+    /*  We don't know in advance how many bytes will be sent by master so
+     *  we'll fetch one by one until master ends the sequence */
+    HAL_I2C_Slave_Seq_Receive_IT(hi2c, (uint8_t *) & (obj->i2cTxRxBuffer[obj->slaveRxNbData]),
+                                 1, I2C_NEXT_FRAME);
   }
 }
 
