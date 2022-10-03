@@ -1,0 +1,462 @@
+{
+  "packages": [
+    {
+      "name": "STMicroelectronics",
+      "maintainer": "STMicroelectronics",
+      "websiteUrl": "https://github.com/stm32duino",
+      "Url": "https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json",
+      "email": "stmduino@st.com",
+      "platforms": [
+        {
+          "name": "STM32 MCU based boards",
+          "architecture": "stm32",
+          "version": "2.3.0",
+          "deprecated": false,
+          "category": "Contributed",
+          "url": "https://github.com/stm32duino/Arduino_Core_STM32/releases/download/2.3.0/STM32-2.3.0.tar.bz2",
+          "archiveFileName": "STM32-2.3.0.tar.bz2",
+          "checksum": "SHA-256:b18c951e8968945f1aa75192c6e2f11df22ae1281b8ecc06ab4424e91df74c99",
+          "size": "42463756",
+          "boards": [
+            {
+              "name": "Nucleo-144"
+            },
+            {
+              "name": "Nucleo-64"
+            },
+            {
+              "name": "Nucleo-32"
+            },
+            {
+              "name": "Discovery"
+            },
+            {
+              "name": "Eval"
+            },
+            {
+              "name": "STM32MP1 series coprocessor"
+            },
+            {
+              "name": "Generic STM32F0 series"
+            },
+            {
+              "name": "Generic STM32F1 series"
+            },
+            {
+              "name": "Generic STM32F2 series"
+            },
+            {
+              "name": "Generic STM32F3 series"
+            },
+            {
+              "name": "Generic STM32F4 series"
+            },
+            {
+              "name": "Generic STM32F7 series"
+            },
+            {
+              "name": "Generic STM32G0 series"
+            },
+            {
+              "name": "Generic STM32G4 series"
+            },
+            {
+              "name": "Generic STM32H7 Series"
+            },
+            {
+              "name": "Generic STM32L0 series"
+            },
+            {
+              "name": "Generic STM32L1 series"
+            },
+            {
+              "name": "Generic STM32L4 series"
+            },
+            {
+              "name": "Generic STM32L5 series"
+            },
+            {
+              "name": "Generic STM32U5 series"
+            },
+            {
+              "name": "Generic STM32WB series"
+            },
+            {
+              "name": "Generic STM32WL series"
+            },
+            {
+              "name": "3D printer boards"
+            },
+            {
+              "name": "Blues Wireless boards"
+            },
+            {
+              "name": "Elecgator boards"
+            },
+            {
+              "name": "Electronic speed controllers"
+            },
+            {
+              "name": "Garatronic-McHobby"
+            },
+            {
+              "name": "Generic Flight Controllers"
+            },
+            {
+              "name": "LoRa boards"
+            },
+            {
+              "name": "Midatronics boards"
+            }
+          ],
+          "help": {},
+          "toolsDependencies": [
+            {
+              "packager": "STMicroelectronics",
+              "name": "xpack-arm-none-eabi-gcc",
+              "version": "10.3.1-2.3"
+            },
+            {
+              "packager": "STMicroelectronics",
+              "name": "STM32Tools",
+              "version": "2.1.1"
+            },
+            {
+              "packager": "STMicroelectronics",
+              "name": "CMSIS",
+              "version": "5.7.0"
+            }
+          ],
+          "discoveryDependencies": [],
+          "monitorDependencies": []
+        }
+      ],
+      "tools": [
+        {
+          "name": "cxppstm8",
+          "version": "4.1.3",
+          "systems": [
+            {
+              "host": "i686-mingw32",
+              "url": "http://cosmicsoftware.com/Arduino/4.1.3/Cxppstm8.zip",
+              "archiveFileName": "Cxppstm8.zip",
+              "size": "32363283",
+              "checksum": "SHA-256:1277e2ba80e744845ee55bb9088b206e324d401439ddd2956c13a4f418832dfe"
+            }
+          ]
+        },
+        {
+          "name": "STM8Tools",
+          "version": "1.0.0",
+          "systems": [
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/stm32duino/Arduino_Tools_STM8/releases/download/1.0.0/STM8Tools-1.0.0-windows.tar.bz2",
+              "archiveFileName": "STM8Tools-1.0.0-windows.tar.bz2",
+              "size": "6864757",
+              "checksum": "SHA-256:e8e8c8c23b41ae02e3363a54acfd0c716813b8ef64db490af1555993c81dcd0a"
+            }
+          ]
+        },
+        {
+          "name": "xpack-arm-none-eabi-gcc",
+          "version": "10.2.1-1.1",
+          "systems": [
+            {
+              "host": "arm-linux-gnueabihf",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.2.1-1.1/xpack-arm-none-eabi-gcc-10.2.1-1.1-linux-arm.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.2.1-1.1-linux-arm.tar.gz",
+              "size": "182652907",
+              "checksum": "SHA-256:b726faccb8a3c426012592145d9d49a9b998a950613a4848bf8d899a8929ae34"
+            },
+            {
+              "host": "aarch64-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.2.1-1.1/xpack-arm-none-eabi-gcc-10.2.1-1.1-linux-arm64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.2.1-1.1-linux-arm64.tar.gz",
+              "size": "187490794",
+              "checksum": "SHA-256:88b4f581a14b0dc2ee2313f4342f38996a4c8f3e4d09d9f70a6c4a4b9ea360e7"
+            },
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.2.1-1.1/xpack-arm-none-eabi-gcc-10.2.1-1.1-win32-ia32.zip",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.2.1-1.1-win32-ia32.zip",
+              "size": "190155753",
+              "checksum": "SHA-256:5b4576c8280a6788bd1abe54c8172e03f9947ddd776960d2043b33955389e739"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.2.1-1.1/xpack-arm-none-eabi-gcc-10.2.1-1.1-darwin-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.2.1-1.1-darwin-x64.tar.gz",
+              "size": "183654470",
+              "checksum": "SHA-256:061615d3e35d026cfa3ef8999f2bdaef2181b56e61029f58c8e0f1054bba046b"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.2.1-1.1/xpack-arm-none-eabi-gcc-10.2.1-1.1-linux-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.2.1-1.1-linux-x64.tar.gz",
+              "size": "188707051",
+              "checksum": "SHA-256:840e90b527d30143b8d8e5eb894218858ed14226bdc8664686f0848592b6e474"
+            },
+            {
+              "host": "i686-pc-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.2.1-1.1/xpack-arm-none-eabi-gcc-10.2.1-1.1-linux-ia32.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.2.1-1.1-linux-ia32.tar.gz",
+              "size": "192497639",
+              "checksum": "SHA-256:8adaca8af367a54d1acd2b274cfdc18384b87fbe0ba613322ea3ead20677a132"
+            }
+          ]
+        },
+        {
+          "name": "xpack-arm-none-eabi-gcc",
+          "version": "10.3.1-2.3",
+          "systems": [
+            {
+              "host": "arm-linux-gnueabihf",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.3/xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-arm.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-arm.tar.gz",
+              "size": "169168939",
+              "checksum": "SHA-256:cf152bb008697143b802a85fffffc2c9b562bc1e6d0984ad02d4ee1f1bb91790"
+            },
+            {
+              "host": "aarch64-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.3/xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-arm64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-arm64.tar.gz",
+              "size": "174454524",
+              "checksum": "SHA-256:6e3ee605079ba084836cd057022e16c28605f4068042cd14397976b836ea1a21"
+            },
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.3/xpack-arm-none-eabi-gcc-10.3.1-2.3-win32-ia32.zip",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.3-win32-ia32.zip",
+              "size": "180590105",
+              "checksum": "SHA-256:c98fc443d7ef3524d42a40b6635e8b99c736efac77729f8a70463bb9ba19bc85"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.3/xpack-arm-none-eabi-gcc-10.3.1-2.3-darwin-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.3-darwin-x64.tar.gz",
+              "size": "173440158",
+              "checksum": "SHA-256:eb9218eaafb74a05fab9cbbeb49fd4fe7b85c6ba411aefc66f681a5a862e8d8e"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.3/xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-x64.tar.gz",
+              "size": "175646740",
+              "checksum": "SHA-256:559dcf1c2dfddac513110fe23da0ef254032c09967eaa901f075515d51818719"
+            },
+            {
+              "host": "i686-pc-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.3/xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-ia32.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-10.3.1-2.3-linux-ia32.tar.gz",
+              "size": "179184840",
+              "checksum": "SHA-256:8a6621590ac2f0b33fc71f1c501af6b60e900fc3d895a11f20de850cd4f55ca3"
+            }
+          ]
+        },
+        {
+          "name": "xpack-arm-none-eabi-gcc",
+          "version": "9.3.1-1.3",
+          "systems": [
+            {
+              "host": "arm-linux-gnueabihf",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v9.3.1-1.3/xpack-arm-none-eabi-gcc-9.3.1-1.3-linux-arm.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-9.3.1-1.3-linux-arm.tar.gz",
+              "size": "147111321",
+              "checksum": "SHA-256:0e6720296f291141cd757d90e6bf60867a1232de9abc52b0cde28af12eeb94f2"
+            },
+            {
+              "host": "aarch64-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v9.3.1-1.3/xpack-arm-none-eabi-gcc-9.3.1-1.3-linux-arm64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-9.3.1-1.3-linux-arm64.tar.gz",
+              "size": "150584175",
+              "checksum": "SHA-256:9a9e96b9ac3634d7632d35aa0d8138f8468d4f3f4d752374a95420ff7c8e4476"
+            },
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v9.3.1-1.3/xpack-arm-none-eabi-gcc-9.3.1-1.3-win32-x32.zip",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-9.3.1-1.3-win32-x32.zip",
+              "size": "148593506",
+              "checksum": "SHA-256:7432cfff045dc421d2ba177c3777ec1e82d4febe5f5f51fb2e90ff07d27cd466"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v9.3.1-1.3/xpack-arm-none-eabi-gcc-9.3.1-1.3-darwin-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-9.3.1-1.3-darwin-x64.tar.gz",
+              "size": "148641073",
+              "checksum": "SHA-256:f22f0d49c27f844dcfe629a6a33878d767b6945acd7508d9578b20b17b106f4c"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v9.3.1-1.3/xpack-arm-none-eabi-gcc-9.3.1-1.3-linux-x64.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-9.3.1-1.3-linux-x64.tar.gz",
+              "size": "151422620",
+              "checksum": "SHA-256:9045d261b000d921887fc801427542eed2df1616f63a2969a2640f8be2593686"
+            },
+            {
+              "host": "i686-pc-linux-gnu",
+              "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v9.3.1-1.3/xpack-arm-none-eabi-gcc-9.3.1-1.3-linux-x32.tar.gz",
+              "archiveFileName": "xpack-arm-none-eabi-gcc-9.3.1-1.3-linux-x32.tar.gz",
+              "size": "154309058",
+              "checksum": "SHA-256:1950c7b0b4e35bacec32450158ec192ac469189a5fb27c2fd7c01e9603e50e64"
+            }
+          ]
+        },
+        {
+          "name": "CMSIS",
+          "version": "5.7.0",
+          "systems": [
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/stm32duino/ArduinoModule-CMSIS/releases/download/5.7.0/CMSIS-5.7.0.tar.bz2",
+              "archiveFileName": "CMSIS-5.7.0.tar.bz2",
+              "size": "26151901",
+              "checksum": "SHA-256:0b04b0f214e483bcc360cda985cddc0de8031714019ceabcda4770d510b82bfe"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/stm32duino/ArduinoModule-CMSIS/releases/download/5.7.0/CMSIS-5.7.0.tar.bz2",
+              "archiveFileName": "CMSIS-5.7.0.tar.bz2",
+              "size": "26151901",
+              "checksum": "SHA-256:0b04b0f214e483bcc360cda985cddc0de8031714019ceabcda4770d510b82bfe"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/stm32duino/ArduinoModule-CMSIS/releases/download/5.7.0/CMSIS-5.7.0.tar.bz2",
+              "archiveFileName": "CMSIS-5.7.0.tar.bz2",
+              "size": "26151901",
+              "checksum": "SHA-256:0b04b0f214e483bcc360cda985cddc0de8031714019ceabcda4770d510b82bfe"
+            },
+            {
+              "host": "i686-pc-linux-gnu",
+              "url": "https://github.com/stm32duino/ArduinoModule-CMSIS/releases/download/5.7.0/CMSIS-5.7.0.tar.bz2",
+              "archiveFileName": "CMSIS-5.7.0.tar.bz2",
+              "size": "26151901",
+              "checksum": "SHA-256:0b04b0f214e483bcc360cda985cddc0de8031714019ceabcda4770d510b82bfe"
+            },
+            {
+              "host": "arm-linux-gnueabihf",
+              "url": "https://github.com/stm32duino/ArduinoModule-CMSIS/releases/download/5.7.0/CMSIS-5.7.0.tar.bz2",
+              "archiveFileName": "CMSIS-5.7.0.tar.bz2",
+              "size": "26151901",
+              "checksum": "SHA-256:0b04b0f214e483bcc360cda985cddc0de8031714019ceabcda4770d510b82bfe"
+            },
+            {
+              "host": "all",
+              "url": "https://github.com/stm32duino/ArduinoModule-CMSIS/releases/download/5.7.0/CMSIS-5.7.0.tar.bz2",
+              "archiveFileName": "CMSIS-5.7.0.tar.bz2",
+              "size": "26151901",
+              "checksum": "SHA-256:0b04b0f214e483bcc360cda985cddc0de8031714019ceabcda4770d510b82bfe"
+            }
+          ]
+        },
+        {
+          "name": "STM32Tools",
+          "version": "2.0.0",
+          "systems": [
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.0.0/STM32Tools-2.0.0-windows.tar.bz2",
+              "archiveFileName": "STM32Tools-2.0.0-windows.tar.bz2",
+              "size": "2486087",
+              "checksum": "SHA-256:6316ffd1667344952bc5e16ff60783f9b4211d1eb54fc0d0c28e836b1490b717"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.0.0/STM32Tools-2.0.0-mac.tar.bz2",
+              "archiveFileName": "STM32Tools-2.0.0-mac.tar.bz2",
+              "size": "486398",
+              "checksum": "SHA-256:2612be87206d2ba6f7cf797c194dbc070139defc884b881c1957a8d148c2114c"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.0.0/STM32Tools-2.0.0-linux.tar.bz2",
+              "archiveFileName": "STM32Tools-2.0.0-linux.tar.bz2",
+              "size": "479795",
+              "checksum": "SHA-256:850186554df1d56f5f5336d6310551b734b2ff97c92677ca0ece11f134b72d0f"
+            },
+            {
+              "host": "i686-pc-linux-gnu",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.0.0/STM32Tools-2.0.0-linux.tar.bz2",
+              "archiveFileName": "STM32Tools-2.0.0-linux.tar.bz2",
+              "size": "479795",
+              "checksum": "SHA-256:850186554df1d56f5f5336d6310551b734b2ff97c92677ca0ece11f134b72d0f"
+            }
+          ]
+        },
+        {
+          "name": "STM32Tools",
+          "version": "2.1.0",
+          "systems": [
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.1.0/STM32Tools-2.1.0-windows.tar.bz2",
+              "archiveFileName": "STM32Tools-2.1.0-windows.tar.bz2",
+              "size": "2559277",
+              "checksum": "SHA-256:d4d4b4fe0500ae1a1906c5e552b967277fd0e2df457f102b8c363c89f77cb6f2"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.1.0/STM32Tools-2.1.0-mac.tar.bz2",
+              "archiveFileName": "STM32Tools-2.1.0-mac.tar.bz2",
+              "size": "447015",
+              "checksum": "SHA-256:475357fc7006fc003c320aa7a6cce7d8dbb81adc3b66929fc8a0a360bd3bb348"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.1.0/STM32Tools-2.1.0-linux.tar.bz2",
+              "archiveFileName": "STM32Tools-2.1.0-linux.tar.bz2",
+              "size": "479203",
+              "checksum": "SHA-256:06677d45ef42410590ae0b03fdf58f6a1f338726df4911fabc13822f4542ca2f"
+            },
+            {
+              "host": "i686-pc-linux-gnu",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.1.0/STM32Tools-2.1.0-linux.tar.bz2",
+              "archiveFileName": "STM32Tools-2.1.0-linux.tar.bz2",
+              "size": "479203",
+              "checksum": "SHA-256:06677d45ef42410590ae0b03fdf58f6a1f338726df4911fabc13822f4542ca2f"
+            }
+          ]
+        },
+        {
+          "name": "STM32Tools",
+          "version": "2.1.1",
+          "systems": [
+            {
+              "host": "i686-mingw32",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.1.1/STM32Tools-2.1.1-windows.tar.bz2",
+              "archiveFileName": "STM32Tools-2.1.1-windows.tar.bz2",
+              "size": "2587832",
+              "checksum": "SHA-256:385f1495a70613ca6771c0f824e420f44e27b1433b0b449aaade1dde63b35e68"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.1.1/STM32Tools-2.1.1-mac.tar.bz2",
+              "archiveFileName": "STM32Tools-2.1.1-mac.tar.bz2",
+              "size": "486815",
+              "checksum": "SHA-256:417bc75ebf19060083e29cf65f7a9f71a6903b7fd158c154057ed723c5e847a1"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.1.1/STM32Tools-2.1.1-linux.tar.bz2",
+              "archiveFileName": "STM32Tools-2.1.1-linux.tar.bz2",
+              "size": "480360",
+              "checksum": "SHA-256:35ecc3914e8a0a45de229111cc45b8cb39a8e0a8c66313562fd51977a7ab3dee"
+            },
+            {
+              "host": "i686-pc-linux-gnu",
+              "url": "https://github.com/stm32duino/Arduino_Tools/releases/download/2.1.1/STM32Tools-2.1.1-linux.tar.bz2",
+              "archiveFileName": "STM32Tools-2.1.1-linux.tar.bz2",
+              "size": "480360",
+              "checksum": "SHA-256:35ecc3914e8a0a45de229111cc45b8cb39a8e0a8c66313562fd51977a7ab3dee"
+            }
+          ]
+        }
+      ],
+      "help": {
+        "online": "http://www.stm32duino.com/"
+      }
+    }
+  ],
+  "IsTrusted": false
+}
