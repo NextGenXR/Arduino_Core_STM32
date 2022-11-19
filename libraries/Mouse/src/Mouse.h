@@ -22,6 +22,8 @@
 #ifndef MOUSE_h
 #define MOUSE_h
 
+#ifdef ARDUINO
+
 #include <Arduino.h>
 
 #if !defined(USBCON) || !defined(USBD_USE_HID_COMPOSITE)
@@ -56,4 +58,6 @@ class Mouse_ {
 extern Mouse_ Mouse;
 
 #endif
+#endif
+
 #endif
