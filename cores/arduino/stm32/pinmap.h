@@ -19,9 +19,15 @@
 #ifndef _PINMAP_H
 #define _PINMAP_H
 
+#if __has_include(<main.h>)
+    #include <main.h>
+#endif
+
+#include VARIANT_H
 #include "PinNames.h"
 #include <stdbool.h>
 #include <string.h>
+
 
 #ifdef __cplusplus
 extern "C" {
