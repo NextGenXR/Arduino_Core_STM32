@@ -56,7 +56,7 @@
 #include "stm32yyxx_ll_spi.h"
 #include "stm32yyxx_hal_spi.h"
 
-#if defined(HAL_SPI_MODULE_ENABLED && HAL_MODULE_ENABLED)
+#if defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_MODULE_ENABLED)
 
 #ifdef __cplusplus
 extern "C" {
