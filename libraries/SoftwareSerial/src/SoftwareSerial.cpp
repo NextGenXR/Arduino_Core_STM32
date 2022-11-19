@@ -34,7 +34,17 @@
 //
 // Includes
 //
+
+#if __has_include(<main.h>)
+    #include <main.h>
+#endif
+
+#include VARIANT_H
 #include "SoftwareSerial.h"
+
+#include <cstdint>
+
+#define ERROR_HANDLER Error_Handler
 
 #define OVERSAMPLE 3 // in RX, Timer will generate interruption OVERSAMPLE time during a bit. Thus OVERSAMPLE ticks in a bit. (interrupt not synchronized with edge).
 
@@ -323,10 +333,10 @@ SoftwareSerial::SoftwareSerial(uint16_t receivePin, uint16_t transmitPin, bool i
 {
   /* Enable GPIO clock for tx and rx pin*/
   if (set_GPIO_Port_Clock(STM_PORT(digitalPinToPinName(transmitPin))) == 0) {
-    _Error_Handler("ERROR: invalid transmit pin number\n", -1);
+	  ERROR_HANDLER("ERROR: invalid transmit pin number\n", -1);
   }
   if ((!_half_duplex) && (set_GPIO_Port_Clock(STM_PORT(digitalPinToPinName(receivePin))) == 0)) {
-    _Error_Handler("ERROR: invalid receive pin number\n", -1);
+	  ERROR_HANDLER("ERROR: invalid receive pin number\n", -1);
   }
 }
 
