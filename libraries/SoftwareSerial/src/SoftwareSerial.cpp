@@ -43,8 +43,14 @@
 #include "SoftwareSerial.h"
 
 #include <cstdint>
+#include <string>
 
-#define ERROR_HANDLER Error_Handler
+#ifndef ARDUINO
+#include <stm32yyxx_hal_def.h>
+#include <stm32yyxx_hal_conf.h>
+#endif
+
+using namespace std;
 
 #define OVERSAMPLE 3 // in RX, Timer will generate interruption OVERSAMPLE time during a bit. Thus OVERSAMPLE ticks in a bit. (interrupt not synchronized with edge).
 
@@ -313,6 +319,20 @@ inline void SoftwareSerial::handleInterrupt()
     active_out->send();
   }
 }
+
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void SoftwareSerial::_Error_Handler(std::string message, int number)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+
+  /* USER CODE END Error_Handler_Debug */
+}
+
 //
 // Constructor
 //
@@ -333,10 +353,10 @@ SoftwareSerial::SoftwareSerial(uint16_t receivePin, uint16_t transmitPin, bool i
 {
   /* Enable GPIO clock for tx and rx pin*/
   if (set_GPIO_Port_Clock(STM_PORT(digitalPinToPinName(transmitPin))) == 0) {
-	  ERROR_HANDLER("ERROR: invalid transmit pin number\n", -1);
+	  _Error_Handler("ERROR: invalid transmit pin number\n", -1);
   }
   if ((!_half_duplex) && (set_GPIO_Port_Clock(STM_PORT(digitalPinToPinName(receivePin))) == 0)) {
-	  ERROR_HANDLER("ERROR: invalid receive pin number\n", -1);
+	  _Error_Handler("ERROR: invalid receive pin number\n", -1);
   }
 }
 
