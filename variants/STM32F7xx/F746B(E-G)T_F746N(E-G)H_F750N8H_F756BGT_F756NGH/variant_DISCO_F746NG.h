@@ -12,6 +12,10 @@
  */
 #pragma once
 
+#if __has_include(<main.h>)
+    #include <main.h>
+#endif
+
 #ifdef ARDUINO_DISCO_F746NG
 
 /*----------------------------------------------------------------------------
