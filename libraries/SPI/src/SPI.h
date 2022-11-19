@@ -18,9 +18,12 @@ extern "C" {
 #include "utility/spi_com.h"
 }
 
+#include VARIANT_H
 #include <pins_arduino.h>
 #include <PinNames.h>
 #include <pinmap.h>
+
+
 
 // SPI_HAS_TRANSACTION means SPI has
 //   - beginTransaction()
