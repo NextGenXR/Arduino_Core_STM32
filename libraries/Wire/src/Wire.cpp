@@ -27,6 +27,8 @@ extern "C" {
 
 }
 
+#ifdef ARDUINO
+
 #include "Wire.h"
 
 // Distinguish master from slave.
@@ -536,3 +538,5 @@ void TwoWire::recoverBus(void)
 // Preinstantiate Objects //////////////////////////////////////////////////////
 
 TwoWire Wire = TwoWire(); //D14-D15
+
+#endif
