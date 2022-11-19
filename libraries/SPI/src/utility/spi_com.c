@@ -161,7 +161,7 @@ uint32_t spi_getClkFreqInst(SPI_TypeDef *spi_inst)
         spi_freq = HAL_RCC_GetPCLK2Freq();
       }
     }
-#endif * SPI5_BASE */
+#endif /* SPI5_BASE */
 #if defined(SPI6_BASE)
     if (spi_inst == SPI6) {
 #if defined(RCC_PERIPHCLK_SPI6)
