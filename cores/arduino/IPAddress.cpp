@@ -19,6 +19,7 @@
 
 #include <Arduino.h>
 #include <IPAddress.h>
+#include <print.h>
 
 IPAddress::IPAddress()
 {

@@ -12,15 +12,36 @@
 #ifndef _SPI_H_INCLUDED
 #define _SPI_H_INCLUDED
 
+#ifdef ARDUINO
+
 #include "Arduino.h"
-#include <stdio.h>
+#include <wiring_constants.h>
+#include <pins_arduino.h>
+
 extern "C" {
-#include "utility/spi_com.h"
+#include "spi_com.h"
 }
 
-#include <pins_arduino.h>
-#include <PinNames.h>
-#include <pinmap.h>
+#include <cstdio>
+
+
+#if __has_include(<stm32yyxx_hal_def.h>)
+#include <stm32yyxx_hal_def.h>
+#else
+#include "stm32_def.h"
+#endif
+
+#ifdef HAL_SPI_MODULE_ENABLED
+
+#if __has_include(<main.h>)
+#include <main.h>
+#endif
+
+#include <stm32yyxx_hal_conf.h>
+#include <stm32yyxx_hal_spi.h>
+#include <stm32yyxx_ll_spi.h>
+
+#endif
 
 // SPI_HAS_TRANSACTION means SPI has
 //   - beginTransaction()
@@ -78,30 +99,60 @@ enum SPITransferMode {
 
 class SPISettings {
   public:
+
     SPISettings(uint32_t clock, BitOrder bitOrder, uint8_t dataMode, bool noRecv = SPI_TRANSMITRECEIVE)
     {
-      clk = clock;
-      bOrder = bitOrder;
-      noReceive = noRecv;
+		clk = clock;
+		bOrder = bitOrder;
+		noReceive = noRecv;
+		pinCS = -1;
+#ifdef USE_HAL_DRIVER
+		_settings = new SPI_InitTypeDef();
+#endif
 
-      if (SPI_MODE0 == dataMode) {
-        dMode = SPI_MODE_0;
-      } else if (SPI_MODE1 == dataMode) {
-        dMode = SPI_MODE_1;
-      } else if (SPI_MODE2 == dataMode) {
-        dMode = SPI_MODE_2;
-      } else if (SPI_MODE3 == dataMode) {
-        dMode = SPI_MODE_3;
-      }
+		if (SPI_MODE0 == dataMode) {
+			dMode = SPI_MODE_0;
+		} else if (SPI_MODE1 == dataMode) {
+			dMode = SPI_MODE_1;
+		} else if (SPI_MODE2 == dataMode) {
+			dMode = SPI_MODE_2;
+		} else if (SPI_MODE3 == dataMode) {
+			dMode = SPI_MODE_3;
+		}
     }
+
     SPISettings()
     {
-      pinCS = -1;
-      clk = SPI_SPEED_CLOCK_DEFAULT;
-      bOrder = MSBFIRST;
-      dMode = SPI_MODE_0;
+#ifdef USE_HAL_DRIVER
+		_settings = new SPI_InitTypeDef();
+#endif
+        noReceive = SPI_TRANSMITRECEIVE;
+		pinCS = -1;
+		clk = SPI_SPEED_CLOCK_DEFAULT;
+		bOrder = MSBFIRST;
+		dMode = SPI_MODE_0;
     }
+
+#ifdef USE_HAL_DRIVER
+    SPISettings(SPI_InitTypeDef* Settings)
+    {
+    	_settings = Settings;
+
+        noReceive = SPI_TRANSMITRECEIVE;
+		pinCS = -1;
+		clk = SPI_SPEED_CLOCK_DEFAULT;
+		bOrder = MSBFIRST;
+		dMode = SPI_MODE_0;
+
+    }
+#endif
+
+
   private:
+#ifdef USE_HAL_DRIVER
+    SPI_InitTypeDef* _settings;
+#endif
+
     int16_t pinCS;      //CS pin associated to the configuration
     uint32_t clk;       //specifies the spi bus maximum clock speed
     BitOrder bOrder;    //bit order (MSBFirst or LSBFirst)
@@ -114,6 +165,7 @@ class SPISettings {
     friend class SPIClass;
     bool noReceive;
 };
+
 
 class SPIClass {
   public:
@@ -308,4 +360,7 @@ class SPIClass {
 
 extern SPIClass SPI;
 
-#endif
+#endif /* ARDUINO */
+
+#endif /* HAL_SPI_MODULE_ENABLED */
+

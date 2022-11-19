@@ -22,10 +22,13 @@
   Modified 3 December 2013 by Matthijs Kooijman
 */
 
+#ifdef Arduino
+
 #include <stdio.h>
 #include "Arduino.h"
 #include "HardwareSerial.h"
 #include "pins_arduino_digital.h"
+#include "pins_arduino_analog.h"
 
 #if defined(HAL_UART_MODULE_ENABLED) && !defined(HAL_UART_MODULE_ONLY)
 #if defined(HAVE_HWSERIAL1) || defined(HAVE_HWSERIAL2) || defined(HAVE_HWSERIAL3) ||\
@@ -633,5 +636,7 @@ void HardwareSerial::enableHalfDuplexRx(void)
     }
   }
 }
+
+#endif /* Arduino */
 
 #endif // HAL_UART_MODULE_ENABLED && !HAL_UART_MODULE_ONLY

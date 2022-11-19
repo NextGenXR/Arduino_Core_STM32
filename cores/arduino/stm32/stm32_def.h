@@ -5,6 +5,10 @@
 #include <main.h>
 #endif
 
+#if __has_include(<stm32yyxx_hal_def.h>)
+#include <stm32yyxx_hal_def.h>
+#endif
+
 /**
  * @brief STM32 core version number
  */
@@ -135,9 +139,12 @@ void SystemClock_Config(void);
   }
 #endif
 #else
+
+#ifdef ARDUINO
 void _Error_Handler(const char *, int);
 
 #define Error_Handler() _Error_Handler(__FILE__, __LINE__)
+#endif
 #endif
 
 #ifdef __cplusplus

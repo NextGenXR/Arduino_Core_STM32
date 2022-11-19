@@ -5,6 +5,7 @@
 #include <main.h>
 #endif
 
+#ifdef Arduino
 
 #if !defined(CMSIS_STARTUP_FILE) && !defined(CUSTOM_STARTUP_FILE)
   #if defined(STM32F030x6)
@@ -459,4 +460,6 @@
 #else
   #warning "No CMSIS startup file defined, custom one should be used"
 #endif /* !CMSIS_STARTUP_FILE && !CUSTOM_STARTUP_FILE */
+
+#endif
 #endif /* _STM32_DEF_BUILD_ */

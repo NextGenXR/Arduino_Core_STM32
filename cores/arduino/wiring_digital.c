@@ -18,10 +18,24 @@
 
 #include "Arduino.h"
 #include "PinConfigured.h"
+#include "PinNames.h"
+#include <pinmap.h>
+#include <PeripheralPins.h>
+#include <pins_arduino.h>
 #include "wiring_digital.h"
+#include "wiring_constants.h"
+#include <analog.h>
+#include <digital_io.h>
+
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
+#endif
+
+#ifdef USE_HAL_DRIVER
+#include <stm32yyxx_hal_gpio.h>
+
 #endif
 
 
@@ -32,7 +46,7 @@ void pinMode(uint32_t ulPin, uint32_t ulMode)
   PinName p = digitalPinToPinName(ulPin);
 
   if (p != NC) {
-    // If the pin that support PWM or DAC output, we need to turn it off
+    /* If the pin that support PWM or DAC output, we need to turn it off */
     #if (defined(HAL_DAC_MODULE_ENABLED) && !defined(HAL_DAC_MODULE_ONLY)) ||\
         (defined(HAL_TIM_MODULE_ENABLED) && !defined(HAL_TIM_MODULE_ONLY))
     if (is_pin_configured(p, g_anOutputPinConfigured)) {
@@ -41,12 +55,12 @@ void pinMode(uint32_t ulPin, uint32_t ulMode)
         dac_stop(p);
       }
       else
-#endif //HAL_DAC_MODULE_ENABLED && !HAL_DAC_MODULE_ONLY
+#endif /* HAL_DAC_MODULE_ENABLED && !HAL_DAC_MODULE_ONLY */
 #if defined(HAL_TIM_MODULE_ENABLED) && !defined(HAL_TIM_MODULE_ONLY)
       if (pin_in_pinmap(p, PinMap_TIM)) {
         pwm_stop(p);
       }
-#endif //HAL_TIM_MODULE_ENABLED && !HAL_TIM_MODULE_ONLY
+#endif /* HAL_TIM_MODULE_ENABLED && !HAL_TIM_MODULE_ONLY */
       {
         reset_pin_configured(p, g_anOutputPinConfigured);
       }

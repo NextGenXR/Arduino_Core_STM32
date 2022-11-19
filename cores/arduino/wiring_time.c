@@ -15,35 +15,54 @@
   License along with this library; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+#ifdef Arduino
 
 #include "Arduino.h"
+#include <stdint.h>
+#include <clock.h>
+
+#if __has_include(<main.h>)
+#include <main.h>
+#endif
+
+#ifndef Arduino
+#include <stm32duino.h>
+#include <cmsis_os.h>
+#endif
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-uint32_t millis(void)
+__weak uint32_t millis(void)
 {
-  // ToDo: ensure no interrupts
-  return getCurrentMillis();
+  /* ToDo: ensure no interrupts */
+  return ((uint32_t)getCurrentMillis());
 }
 
-// Interrupt-compatible version of micros
-uint32_t micros(void)
+/* Interrupt-compatible version of micros */
+__weak uint32_t micros(void)
 {
-  return getCurrentMicros();
+  return ((uint32_t)getCurrentMicros());
 }
 
-void delay(uint32_t ms)
+__weak void delay(uint32_t ms)
 {
+#ifdef USE_HAL_DRIVER
+	HAL_Delay(ms);
+#else
+
   if (ms != 0) {
     uint32_t start = getCurrentMillis();
     do {
       yield();
     } while (getCurrentMillis() - start < ms);
   }
+#endif
 }
 
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* Arduino */

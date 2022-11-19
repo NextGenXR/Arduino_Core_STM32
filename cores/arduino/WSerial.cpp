@@ -1,5 +1,7 @@
 #include "WSerial.h"
 
+#ifdef Arduino
+
 WEAK void serialEventRun(void)
 {
 #if defined(HAVE_HWSERIAL1)
@@ -73,4 +75,6 @@ WEAK void serialEventRun(void)
   }
 #endif
 }
+
+#endif
 

@@ -11,6 +11,8 @@
  *******************************************************************************
  */
 #include "RGB_LED_TLC59731.h"
+#include <pins_arduino.h>
+#include <wiring_digital.h>
 
 #define WRITE_COMMAND      0x3A
 #ifndef DEFAULT_BRIGHTNESS

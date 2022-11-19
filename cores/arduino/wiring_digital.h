@@ -23,6 +23,8 @@
 extern "C" {
 #endif
 
+#include <stdint.h>
+
 /**
  * \brief Configures the specified pin to behave either as an input or an output.
  *

@@ -20,8 +20,16 @@
 #ifndef _WIRING_TIME_H_
 #define _WIRING_TIME_H_
 
+
+#include <stdint.h>
 #include "clock.h"
 #include "dwt.h"
+#include "wiring_time.h"
+
+#ifdef USE_HAL_DRIVER
+
+#include <stm32yyxx_hal.h>
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -60,6 +68,8 @@ extern void delay(uint32_t ms) ;
  *
  * \param us the number of microseconds to pause (uint32_t)
  */
+
+#ifdef Arduino
 static inline void delayMicroseconds(uint32_t) __attribute__((always_inline, unused));
 static inline void delayMicroseconds(uint32_t us)
 {
@@ -85,9 +95,13 @@ static inline void delayMicroseconds(uint32_t us)
   } while (nbTicks > elapsedTicks);
 #endif
 }
+#else
+
+#endif
 
 #ifdef __cplusplus
 }
 #endif
+
 
 #endif /* _WIRING_TIME_H_ */
