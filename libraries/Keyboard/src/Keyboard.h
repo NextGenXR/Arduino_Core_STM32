@@ -22,6 +22,8 @@
 #ifndef KEYBOARD_h
 #define KEYBOARD_h
 
+#ifdef ARDUINO
+
 #include <Arduino.h>
 
 #if !defined(USBCON) || !defined(USBD_USE_HID_COMPOSITE)
@@ -93,5 +95,6 @@ class Keyboard_ : public Print {
 };
 extern Keyboard_ Keyboard;
 
+#endif
 #endif
 #endif
