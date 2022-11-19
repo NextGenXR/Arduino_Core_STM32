@@ -7,6 +7,8 @@
  #include <main.h>
  #endif
 
+#ifdef ARDUINO
+
 #if defined(STM32F0xx)
   #include "system_stm32f0xx.c"
 #elif defined(STM32F1xx)
@@ -41,4 +43,6 @@
   #include "system_stm32wbxx.c"
 #elif defined(STM32WLxx)
   #include "system_stm32wlxx.c"
+#endif
+
 #endif

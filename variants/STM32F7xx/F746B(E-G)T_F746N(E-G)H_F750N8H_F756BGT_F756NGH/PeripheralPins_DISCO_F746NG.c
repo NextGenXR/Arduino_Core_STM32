@@ -16,6 +16,11 @@
  * STM32F756BGTx.xml, STM32F756NGHx.xml
  * CubeMX DB release 6.0.20
  */
+
+#if __has_include(<main.h>)
+    #include <main.h>
+#endif
+
 #if defined(ARDUINO_DISCO_F746NG)
 #include "Arduino.h"
 #include "PeripheralPins.h"
@@ -87,7 +92,7 @@ WEAK const PinMap PinMap_ADC[] = {
 };
 #endif
 
-//*** DAC ***
+/*** DAC ***/
 
 #ifdef HAL_DAC_MODULE_ENABLED
 WEAK const PinMap PinMap_DAC[] = {

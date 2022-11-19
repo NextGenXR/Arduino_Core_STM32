@@ -10,6 +10,11 @@
  *
  *******************************************************************************
  */
+
+#if __has_include(<main.h>)
+    #include <main.h>
+#endif
+
 #if defined(ARDUINO_DISCO_F746NG)
 
 #include "pins_arduino.h"

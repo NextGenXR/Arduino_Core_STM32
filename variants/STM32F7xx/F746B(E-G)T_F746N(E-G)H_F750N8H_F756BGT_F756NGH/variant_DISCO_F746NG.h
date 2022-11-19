@@ -12,6 +12,8 @@
  */
 #pragma once
 
+#ifdef ARDUINO_DISCO_F746NG
+
 /*----------------------------------------------------------------------------
  *        STM32 pins number
  *----------------------------------------------------------------------------*/
@@ -315,3 +317,5 @@
     #define SERIAL_PORT_HARDWARE    Serial
   #endif
 #endif
+
+#endif /* ARDUINO_DISCO_F746NG */

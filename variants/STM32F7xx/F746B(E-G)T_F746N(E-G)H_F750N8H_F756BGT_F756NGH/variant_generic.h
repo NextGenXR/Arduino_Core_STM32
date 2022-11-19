@@ -12,6 +12,11 @@
  */
 #pragma once
 
+#if defined(ARDUINO_GENERIC_F746BETX) || defined(ARDUINO_GENERIC_F746BGTX) ||\
+    defined(ARDUINO_GENERIC_F746NEHX) || defined(ARDUINO_GENERIC_F746NGHX) ||\
+    defined(ARDUINO_GENERIC_F750N8HX) || defined(ARDUINO_GENERIC_F756BGTX) ||\
+    defined(ARDUINO_GENERIC_F756NGHX)
+
 /*----------------------------------------------------------------------------
  *        STM32 pins number
  *----------------------------------------------------------------------------*/
@@ -337,4 +342,6 @@
   #ifndef SERIAL_PORT_HARDWARE
     #define SERIAL_PORT_HARDWARE  Serial
   #endif
+#endif
+
 #endif
