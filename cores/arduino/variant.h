@@ -11,6 +11,11 @@
  *******************************************************************************
  */
 #pragma once
+
+#if __has_include(<main.h>)
+    #include <main.h>
+#endif
+
 #ifdef VARIANT_H
 #include VARIANT_H
 #endif
