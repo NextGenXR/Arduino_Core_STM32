@@ -14,6 +14,10 @@
 #include <pins_arduino.h>
 #include <wiring_digital.h>
 
+#ifndef ARDUINO
+#include <stm32duino.h>
+#endif
+
 #define WRITE_COMMAND      0x3A
 #ifndef DEFAULT_BRIGHTNESS
   #define DEFAULT_BRIGHTNESS 0x41
