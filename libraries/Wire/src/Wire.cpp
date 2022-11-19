@@ -23,6 +23,8 @@ extern "C" {
 #include <stdlib.h>
 #include <string.h>
 #include <inttypes.h>
+#include <pins_arduino.h>
+
 }
 
 #include "Wire.h"

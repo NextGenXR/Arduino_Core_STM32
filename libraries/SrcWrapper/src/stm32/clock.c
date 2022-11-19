@@ -10,12 +10,18 @@
  *
  *******************************************************************************
  */
+
+#ifdef Arduino
+
 #include "backup.h"
 #include "clock.h"
 #include "lock_resource.h"
 #include "otp.h"
 #include "stm32yyxx_ll_cortex.h"
 #include "stm32yyxx_ll_rcc.h"
+#include "stm32yyxx_ll_utils.h"
+
+#include <cmsis_os.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -51,10 +57,14 @@ uint32_t getCurrentMillis(void)
   return HAL_GetTick();
 }
 
+
+
 void noOsSystickHandler()
 {
 
 }
+
+
 
 void osSystickHandler() __attribute__((weak, alias("noOsSystickHandler")));
 /**
@@ -88,7 +98,9 @@ void enableClock(sourceClock_t source)
   }
 #endif /* STM32MP1xx */
 
+#ifdef USE_BACKUP
   enableBackupDomain();
+#endif
 
   switch (source) {
     case LSI_CLOCK:
@@ -187,5 +199,7 @@ void configIPClock(void)
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* Arduino */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

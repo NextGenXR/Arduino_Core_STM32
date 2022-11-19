@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-//Based on mbed-os/hal/mbed_pinmap_common.c
+/* Based on mbed-os/hal/mbed_pinmap_common.c */
 #include "pinmap.h"
 #include "pinconfig.h"
-#include "stm32yyxx_ll_gpio.h"
-#include "stm32yyxx_ll_system.h"
+
+#include <stm32yyxx_ll_gpio.h>
+#include <stm32yyxx_ll_system.h>
 
 #if defined(STM32MP1xx)
   #include "lock_resource.h"
@@ -139,7 +140,7 @@ bool pin_in_pinmap(PinName pin, const PinMap *map)
       map++;
     }
   }
-  return false;
+  return (false);
 }
 
 /**
@@ -232,7 +233,7 @@ void pin_function(PinName pin, int function)
     case STM_PIN_INPUT:
       ll_mode = LL_GPIO_MODE_INPUT;
 #if defined(STM32F1xx)
-      // on F1 family, input mode may be associated with an alternate function
+      /* on F1 family, input mode may be associated with an alternate function */
       pin_SetAFPin(gpio, pin, afnum);
 #endif
       break;
@@ -362,15 +363,15 @@ uint32_t pinmap_function(PinName pin, const PinMap *map)
   return function;
 }
 
-// Merge peripherals
+/* Merge peripherals */
 void *pinmap_merge_peripheral(void *a, void *b)
 {
-  // both are the same (inc both NP)
+  /* both are the same (inc both NP) */
   if (a == b) {
     return a;
   }
 
-  // one (or both) is not set
+  /* one (or both) is not set */
   if (a == NP) {
     return b;
   }
@@ -378,6 +379,6 @@ void *pinmap_merge_peripheral(void *a, void *b)
     return a;
   }
 
-  // mismatch error case
+  /* mismatch error case */
   return NP;
 }

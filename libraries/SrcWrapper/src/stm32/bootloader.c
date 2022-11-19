@@ -1,7 +1,16 @@
+
+
 #include "bootloader.h"
 
+#if __has_include(<stm32yyxx_hal_def.h>)
+#include <stm32yyxx_hal_def.h>
+#else
 #include "stm32_def.h"
+#endif
+
+#ifdef USE_BACKUP
 #include "backup.h"
+#endif
 
 #ifdef BL_LEGACY_LEAF
 void dtr_togglingHook(uint8_t *buf, uint32_t *len)

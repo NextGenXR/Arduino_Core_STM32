@@ -142,10 +142,10 @@ GPIO_TypeDef *set_GPIO_Port_Clock(uint32_t port_idx)
       break;
 #endif
     default:
-      // wrong port number
-      //TBD: error management
+      /* wrong port number */
+      /* TBD: error management */
       gpioPort = 0;
       break;
   }
-  return gpioPort;
+  return (gpioPort);
 }

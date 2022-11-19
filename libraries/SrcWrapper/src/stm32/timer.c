@@ -10,6 +10,8 @@
  *
  *******************************************************************************
  */
+
+#ifdef Arduino
 #include "core_debug.h"
 #include "timer.h"
 #include "board.h"
@@ -40,12 +42,12 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim_base)
   timerObj_t *obj = get_timer_obj(htim_base);
   enableTimerClock(htim_base);
 
-  // configure Update interrupt
+  /* configure Update interrupt */
   HAL_NVIC_SetPriority(getTimerUpIrq(htim_base->Instance), obj->preemptPriority, obj->subPriority);
   HAL_NVIC_EnableIRQ(getTimerUpIrq(htim_base->Instance));
 
   if (getTimerCCIrq(htim_base->Instance) != getTimerUpIrq(htim_base->Instance)) {
-    // configure Capture Compare interrupt
+    /* configure Capture Compare interrupt */
     HAL_NVIC_SetPriority(getTimerCCIrq(htim_base->Instance), obj->preemptPriority, obj->subPriority);
     HAL_NVIC_EnableIRQ(getTimerCCIrq(htim_base->Instance));
   }
@@ -73,12 +75,12 @@ void HAL_TIM_OC_MspInit(TIM_HandleTypeDef *htim)
   timerObj_t *obj = get_timer_obj(htim);
   enableTimerClock(htim);
 
-  // configure Update interrupt
+  /* configure Update interrupt */
   HAL_NVIC_SetPriority(getTimerUpIrq(htim->Instance), obj->preemptPriority, obj->subPriority);
   HAL_NVIC_EnableIRQ(getTimerUpIrq(htim->Instance));
 
   if (getTimerCCIrq(htim->Instance) != getTimerUpIrq(htim->Instance)) {
-    // configure Capture Compare interrupt
+    /* configure Capture Compare interrupt */
     HAL_NVIC_SetPriority(getTimerCCIrq(htim->Instance), obj->preemptPriority, obj->subPriority);
     HAL_NVIC_EnableIRQ(getTimerCCIrq(htim->Instance));
   }
@@ -124,7 +126,7 @@ void HAL_TIM_IC_MspDeInit(TIM_HandleTypeDef *htim)
   */
 void enableTimerClock(TIM_HandleTypeDef *htim)
 {
-  // Enable TIM clock
+  /* Enable TIM clock */
 #if defined(TIM1_BASE)
   if (htim->Instance == TIM1) {
     __HAL_RCC_TIM1_CLK_ENABLE();
@@ -244,7 +246,7 @@ void enableTimerClock(TIM_HandleTypeDef *htim)
   */
 void disableTimerClock(TIM_HandleTypeDef *htim)
 {
-  // Enable TIM clock
+  /* Enable TIM clock */
 #if defined(TIM1_BASE)
   if (htim->Instance == TIM1) {
     __HAL_RCC_TIM1_CLK_DISABLE();
@@ -748,6 +750,8 @@ uint32_t getTimerChannel(PinName pin)
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

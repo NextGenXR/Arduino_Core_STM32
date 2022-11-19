@@ -23,12 +23,22 @@
   Modified to support Arduino_Core_STM32
 */
 
+#ifdef ARDUINO
+
 #include "Arduino.h"
 #include "HardwareTimer.h"
 
  #if __has_include(<main.h>)
  #include <main.h>
  #endif
+
+#if __has_include(<stm32yyxx_hal_def.h>)
+    #include <stm32yyxx_hal_def.h>
+#else
+    #include "stm32_def.h"
+#endif
+
+#include <stm32yyxx_hal_conf.h>
 
 #if defined(HAL_TIM_MODULE_ENABLED) && !defined(HAL_TIM_MODULE_ONLY)
 
@@ -1512,17 +1522,17 @@ void HardwareTimer::timerHandleDeinit()
 /******************************************************************************/
 extern "C" {
 
-  void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+  __weak void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
   {
     HardwareTimer::captureCompareCallback(htim);
   }
 
-  void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
+  __weak void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
   {
     HardwareTimer::captureCompareCallback(htim);
   }
 
-  void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+  __weak void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   {
     HardwareTimer::updateCallback(htim);
   }
@@ -1533,7 +1543,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM1_IRQHandler(void)
+  __weak void TIM1_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER1_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER1_INDEX]->handle);
@@ -1558,7 +1568,7 @@ extern "C" {
   }
 
 #if !defined(STM32F3xx)
-  void TIM1_CC_IRQHandler(void)
+  __weak void TIM1_CC_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER1_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER1_INDEX]->handle);
@@ -1573,7 +1583,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM2_IRQHandler(void)
+  __weak void TIM2_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER2_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER2_INDEX]->handle);
@@ -1587,7 +1597,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM3_IRQHandler(void)
+  __weak void TIM3_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER3_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER3_INDEX]->handle);
@@ -1606,7 +1616,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM4_IRQHandler(void)
+  __weak void TIM4_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER4_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER4_INDEX]->handle);
@@ -1620,7 +1630,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM5_IRQHandler(void)
+  __weak void TIM5_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER5_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER5_INDEX]->handle);
@@ -1634,7 +1644,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM6_IRQHandler(void)
+  __weak void TIM6_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER6_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER6_INDEX]->handle);
@@ -1648,7 +1658,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM7_IRQHandler(void)
+ __weak void TIM7_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER7_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER7_INDEX]->handle);
@@ -1662,7 +1672,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM8_IRQHandler(void)
+  __weak void TIM8_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER8_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER8_INDEX]->handle);
@@ -1677,7 +1687,7 @@ extern "C" {
 #endif
   }
 
-  void TIM8_CC_IRQHandler(void)
+  __weak void TIM8_CC_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER8_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER8_INDEX]->handle);
@@ -1691,7 +1701,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM9_IRQHandler(void)
+  __weak void TIM9_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER9_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER9_INDEX]->handle);
@@ -1706,7 +1716,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM10_IRQHandler(void)
+  __weak void TIM10_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER10_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER10_INDEX]->handle);
@@ -1721,7 +1731,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM11_IRQHandler(void)
+  __weak void TIM11_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER11_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER11_INDEX]->handle);
@@ -1735,7 +1745,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM12_IRQHandler(void)
+  __weak void TIM12_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER12_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER12_INDEX]->handle);
@@ -1750,7 +1760,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM13_IRQHandler(void)
+  __weak void TIM13_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER13_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER13_INDEX]->handle);
@@ -1765,7 +1775,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM14_IRQHandler(void)
+  __weak void TIM14_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER14_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER14_INDEX]->handle);
@@ -1779,7 +1789,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM15_IRQHandler(void)
+  __weak void TIM15_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER15_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER15_INDEX]->handle);
@@ -1794,7 +1804,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM16_IRQHandler(void)
+  __weak void TIM16_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER16_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER16_INDEX]->handle);
@@ -1809,7 +1819,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM17_IRQHandler(void)
+  __weak void TIM17_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER17_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER17_INDEX]->handle);
@@ -1823,7 +1833,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM18_IRQHandler(void)
+  __weak void TIM18_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER18_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER18_INDEX]->handle);
@@ -1845,7 +1855,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM19_IRQHandler(void)
+  __weak void TIM19_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER19_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER19_INDEX]->handle);
@@ -1859,14 +1869,14 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM20_IRQHandler(void)
+  __weak void TIM20_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER20_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER20_INDEX]->handle);
     }
   }
 
-  void TIM20_CC_IRQHandler(void)
+  __weak void TIM20_CC_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER20_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER20_INDEX]->handle);
@@ -1880,7 +1890,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM21_IRQHandler(void)
+  __weak void TIM21_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER21_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER21_INDEX]->handle);
@@ -1894,7 +1904,7 @@ extern "C" {
     * @param  None
     * @retval None
     */
-  void TIM22_IRQHandler(void)
+  __weak void TIM22_IRQHandler(void)
   {
     if (HardwareTimer_Handle[TIMER22_INDEX]) {
       HAL_TIM_IRQHandler(&HardwareTimer_Handle[TIMER22_INDEX]->handle);
@@ -1902,5 +1912,7 @@ extern "C" {
   }
 #endif //TIM22_BASE
 }
+
+#endif
 
 #endif // HAL_TIM_MODULE_ENABLED && !HAL_TIM_MODULE_ONLY

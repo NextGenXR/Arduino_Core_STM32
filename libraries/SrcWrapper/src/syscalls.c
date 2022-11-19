@@ -5,7 +5,12 @@
   *
   */
 
+#if __has_include(<stm32yyxx_hal_def.h>)
+#include <stm32yyxx_hal_def.h>
+#else
 #include "stm32_def.h"
+#endif
+
 #if defined (  __GNUC__  ) /* GCC CS3 */
   #include <sys/stat.h>
 #endif

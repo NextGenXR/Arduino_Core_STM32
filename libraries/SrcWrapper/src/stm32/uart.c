@@ -10,6 +10,9 @@
  *
  *******************************************************************************
  */
+
+#ifdef Arduino
+
 #include "core_debug.h"
 #include "lock_resource.h"
 
@@ -1200,6 +1203,8 @@ void HAL_UARTEx_WakeupCallback(UART_HandleTypeDef *huart)
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* Arduino */
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

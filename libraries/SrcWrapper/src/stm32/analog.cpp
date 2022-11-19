@@ -11,7 +11,7 @@
  *******************************************************************************
  */
 
-#ifdef HAL_ADC_MODULE_ENABLED1
+#ifndef USE_HAL_DRIVER
 
 #include "analog.h"
 #include "lock_resource.h"

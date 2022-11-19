@@ -10,6 +10,9 @@
  *
  *******************************************************************************
  */
+
+#ifndef USE_HAL_DRIVER
+
 #include "dwt.h"
 #include "hw_config.h"
 #include "clock.h"
@@ -87,5 +90,7 @@ void hw_config_init(void)
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* USE_HAL_DRIVER */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

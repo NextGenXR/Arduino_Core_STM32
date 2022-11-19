@@ -51,7 +51,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "core_callback.h"
 
-// List of callback to call
+/* List of callback to call */
 static void (*callbackList[CALLBACK_LIST_SIZE])(void);
 
 /**
@@ -110,5 +110,5 @@ void CoreCallback(void)
 #ifdef __cplusplus
 }
 #endif
-#endif // CORE_CALLBACK
+#endif /* CORE_CALLBACK */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
