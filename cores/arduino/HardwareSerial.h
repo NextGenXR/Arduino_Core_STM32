@@ -28,6 +28,8 @@
 #include <main.h>
 #endif
 
+#include VARIANT_H
+
 #include "pins_arduino.h"
 
 #include <cinttypes>
