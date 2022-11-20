@@ -66,14 +66,14 @@
 #elif defined(STM32WLxx)
   #include "stm32wlxx.h"
 #else
-  #error "STM32YYxx chip series is not defined in boards.txt."
+  //#error "STM32YYxx chip series is not defined in boards.txt."
 #endif
 
 #ifndef F_CPU
   #define F_CPU SystemCoreClock
 #endif
 
-// Here define some compatibility
+/* Here define some compatibility */
 #ifndef ADC1
   #define ADC1 ADC
 #endif
@@ -122,9 +122,9 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif // __cplusplus
+#endif /* __cplusplus */
 
-// weaked functions declaration
+/* weaked functions declaration */
 void SystemClock_Config(void);
 
 #if defined(NDEBUG)
@@ -148,7 +148,7 @@ void _Error_Handler(const char *, int);
 #endif
 
 #ifdef __cplusplus
-} // extern "C"
-#endif // __cplusplus
+} /* extern "C" */
+#endif /* __cplusplus */
 
-#endif //_STM32_DEF_
+#endif /* _STM32_DEF_ */
