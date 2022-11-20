@@ -22,6 +22,8 @@
 #ifndef TwoWire_h
 #define TwoWire_h
 
+#ifdef ARDUINO
+
 #include "Stream.h"
 #include "Arduino.h"
 extern "C" {
@@ -138,8 +140,7 @@ class TwoWire : public Stream {
     }
 };
 
-
-
 extern TwoWire Wire;
 
+#endif
 #endif
