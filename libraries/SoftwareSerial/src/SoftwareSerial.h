@@ -86,7 +86,6 @@ class SoftwareSerial : public Stream {
     void setSpeed(uint32_t speed);
     void setRXTX(bool input);
     static void handleInterrupt();
-    void _Error_Handler(std::string message, int number);
 
   public:
     // public methods
