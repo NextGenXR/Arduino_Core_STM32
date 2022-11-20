@@ -28,8 +28,16 @@
 #define HARDWARETIMER_H_
 
 /* Includes ------------------------------------------------------------------*/
-#include "timer.h"
+
+#if __has_include(<main.h>)
+    #include <main.h>
+#endif
+
+#include <stm32_def.h>
+#include <stm32yyxx_hal_conf.h>
+#include <stm32yyxx_hal_tim.h>
 #include "stm32yyxx_ll_tim.h"
+#include "timer.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED) && !defined(HAL_TIM_MODULE_ONLY)
 
@@ -100,7 +108,7 @@ class HardwareTimer {
   public:
     HardwareTimer();
     HardwareTimer(TIM_TypeDef *instance);
-    ~HardwareTimer();  // destructor
+    ~HardwareTimer();  /* destructor */
 
     void setup(TIM_TypeDef *instance); // Setup, only needed if no instance was passed to the constructor
 
