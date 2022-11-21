@@ -23,22 +23,21 @@
   Modified to support Arduino_Core_STM32
 */
 
-#ifdef ARDUINO
 
 #include "Arduino.h"
-#include "HardwareTimer.h"
 
  #if __has_include(<main.h>)
  #include <main.h>
  #endif
 
-#if __has_include(<stm32yyxx_hal_def.h>)
-    #include <stm32yyxx_hal_def.h>
-#else
-    #include "stm32_def.h"
-#endif
+#include "stm32_def.h"
 
 #include <stm32yyxx_hal_conf.h>
+#include <stm32yyxx_hal_tim.h>
+#include <stm32yyxx_ll_tim.h>
+
+#include <timer.h>
+#include "HardwareTimer.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED) && !defined(HAL_TIM_MODULE_ONLY)
 
@@ -319,7 +318,7 @@ int HardwareTimer::getLLChannel(uint32_t channel)
         return_value = -1;
     }
   }
-  return return_value;
+  return (return_value);
 }
 
 /**
@@ -347,7 +346,7 @@ int HardwareTimer::getIT(uint32_t channel)
     default:
       return_value = -1;
   }
-  return return_value;
+  return (return_value);
 }
 
 /**
@@ -1913,6 +1912,5 @@ extern "C" {
 #endif //TIM22_BASE
 }
 
-#endif
 
 #endif // HAL_TIM_MODULE_ENABLED && !HAL_TIM_MODULE_ONLY
