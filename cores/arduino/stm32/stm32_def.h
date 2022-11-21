@@ -139,13 +139,13 @@ void SystemClock_Config(void);
   }
 #endif
 #else
-
-#ifdef ARDUINO
 void _Error_Handler(const char *, int);
 
+#ifdef ARDUINO
 #define Error_Handler() _Error_Handler(__FILE__, __LINE__)
 #endif
 #endif
+
 
 #ifdef __cplusplus
 } /* extern "C" */
