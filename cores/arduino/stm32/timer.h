@@ -16,11 +16,15 @@
 #define __TIMER_H
 
 /* Includes ------------------------------------------------------------------*/
-#if __has_include(<stm32yyxx_hal_def.h>)
-#include <stm32yyxx_hal_def.h>
-#else
 #include "stm32_def.h"
+
+#ifndef ARDUINO
+#include <stm32yyxx_hal_def.h>
+#include <stm32yyxx_hal_conf.h>
+#include <stm32yyxx_hal_tim.h>
+#include <stm32yyxx_ll_tim.h>
 #endif
+
 #include "PinNames.h"
 
 #ifdef __cplusplus
