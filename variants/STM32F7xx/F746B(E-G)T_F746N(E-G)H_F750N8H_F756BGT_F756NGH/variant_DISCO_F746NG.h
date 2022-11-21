@@ -10,13 +10,14 @@
  *
  *******************************************************************************
  */
-#pragma once
+#ifndef STM32_VARIANT_DISCO_F747_H
+#define STM32_VARIANT_DISCO_F747_H
 
 #if __has_include(<main.h>)
     #include <main.h>
 #endif
 
-#ifdef ARDUINO_DISCO_F746NG
+//#ifdef ARDUINO_DISCO_F746NG
 
 /*----------------------------------------------------------------------------
  *        STM32 pins number
@@ -323,3 +324,5 @@
 #endif
 
 #endif /* ARDUINO_DISCO_F746NG */
+
+//#endif /* Header */
