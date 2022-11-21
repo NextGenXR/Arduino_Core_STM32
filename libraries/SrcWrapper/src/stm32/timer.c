@@ -11,10 +11,11 @@
  *******************************************************************************
  */
 
-#ifdef Arduino
 #include "core_debug.h"
 #include "timer.h"
 #include "board.h"
+
+#include <stm32duino.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,12 +33,14 @@ timerObj_t *get_timer_obj(TIM_HandleTypeDef *htim)
   return (obj);
 }
 
+
+
 /**
   * @brief  TIMER Initialization - clock init and nvic init
   * @param  htim_base: TIM handle
   * @retval None
   */
-void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim_base)
+void _HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim_base)
 {
   timerObj_t *obj = get_timer_obj(htim_base);
   enableTimerClock(htim_base);
@@ -58,7 +61,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim_base)
   * @param  htim_base: TIM handle
   * @retval None
   */
-void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef *htim_base)
+void _HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef *htim_base)
 {
   disableTimerClock(htim_base);
   HAL_NVIC_DisableIRQ(getTimerUpIrq(htim_base->Instance));
@@ -752,6 +755,6 @@ uint32_t getTimerChannel(PinName pin)
 }
 #endif
 
-#endif
+
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
