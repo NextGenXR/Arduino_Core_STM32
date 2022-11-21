@@ -39,16 +39,18 @@
     #include <main.h>
 #endif
 
-#include VARIANT_H
-#include "SoftwareSerial.h"
-
-#include <cstdint>
-#include <string>
-
 #ifndef ARDUINO
 #include <stm32yyxx_hal_def.h>
 #include <stm32yyxx_hal_conf.h>
 #endif
+
+#include <stm32_def.h>
+
+#include VARIANT_H
+#include "SoftwareSerial.h"
+
+#include <stdint.h>
+#include <cstring>
 
 using namespace std;
 
@@ -320,18 +322,6 @@ inline void SoftwareSerial::handleInterrupt()
   }
 }
 
-
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void SoftwareSerial::_Error_Handler(std::string message, int number)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-
-  /* USER CODE END Error_Handler_Debug */
-}
 
 //
 // Constructor
