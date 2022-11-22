@@ -10,6 +10,11 @@
  *
  *******************************************************************************
 */
+#if __has_include(<main.h>)
+    #include <main.h>
+#endif
+
+
 #if defined(ARDUINO_NUCLEO_F767ZI)
 
 #include "pins_arduino.h"
