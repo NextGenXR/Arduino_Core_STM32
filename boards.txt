@@ -36,6 +36,20 @@ Nucleo_144.menu.pnum.NUCLEO_F207ZG.build.variant=STM32F2xx/F207Z(C-E-F-G)T_F217Z
 Nucleo_144.menu.pnum.NUCLEO_F207ZG.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
 Nucleo_144.menu.pnum.NUCLEO_F207ZG.build.cmsis_lib_gcc=arm_cortexM3l_math
 
+# NUCLEO_F413ZH board
+Nucleo_144.menu.pnum.NUCLEO_F413ZH=Nucleo F413ZH
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.node=NODE_F413ZH
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.upload.maximum_size=1572864
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.upload.maximum_data_size=327680
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.build.mcu=cortex-m4
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.build.fpu=-mfpu=fpv4-sp-d16
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.build.float-abi=-mfloat-abi=hard
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.build.board=NUCLEO_F413ZH
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.build.series=STM32F4xx
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.build.product_line=STM32F413xx
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.build.variant=STM32F4xx/F413Z(G-H)(J-T)_F423ZH(J-T)
+Nucleo_144.menu.pnum.NUCLEO_F413ZH.build.cmsis_lib_gcc=arm_cortexM4lf_math
+
 # NUCLEO_F429ZI board
 # Support: USB HID, Serial1 (USART1 on PG9, PG14) and Serial2 (USART2 on PD6, PD5)
 Nucleo_144.menu.pnum.NUCLEO_F429ZI=Nucleo F429ZI
@@ -109,19 +123,19 @@ Nucleo_144.menu.pnum.NUCLEO_F767ZI.build.product_line=STM32F767xx
 Nucleo_144.menu.pnum.NUCLEO_F767ZI.build.variant=STM32F7xx/F765Z(G-I)T_F767Z(G-I)T_F777ZIT
 Nucleo_144.menu.pnum.NUCLEO_F767ZI.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
 
-# NUCLEO_H723ZQ board
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ=Nucleo H723ZQ
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.node=NOD_H723ZQ
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.upload.maximum_size=1048576
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.upload.maximum_data_size=327680
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.mcu=cortex-m7
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.board=NUCLEO_H723ZQ
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.series=STM32H7xx
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.product_line=STM32H723xx
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.variant=STM32H7xx/H723Z(E-G)I_H730ZBI_H733ZGI
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.variant_h=variant_NUCLEO_H723ZQ.h
-Nucleo_144.menu.pnum.NUCLEO_H723ZQ.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
+# NUCLEO H723ZG board
+Nucleo_144.menu.pnum.NUCLEO_H723ZG=Nucleo H723ZG
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.node=NODE_H723ZG
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.upload.maximum_size=1048576
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.upload.maximum_data_size=327680
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.build.mcu=cortex-m7
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.build.fpu=-mfpu=fpv4-sp-d16
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.build.float-abi=-mfloat-abi=hard
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.build.board=NUCLEO_H723ZG
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.build.series=STM32H7xx
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.build.product_line=STM32H723xx
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.build.variant=STM32H7xx/H723Z(E-G)T_H730ZBT_H733ZGT
+Nucleo_144.menu.pnum.NUCLEO_H723ZG.build.cmsis_lib_gcc=arm_cortexM7lfsp_math
 
 # NUCLEO_H743ZI board
 Nucleo_144.menu.pnum.NUCLEO_H743ZI=Nucleo H743ZI
@@ -866,7 +880,7 @@ Disco.menu.pnum.B_L4S5I_IOT01A.build.cmsis_lib_gcc=arm_cortexM4lf_math
 
 # B_U585I_IOT02A board
 Disco.menu.pnum.B_U585I_IOT02A=B-U585I-IOT02A
-Disco.menu.pnum.B_U585I_IOT02A.node="NOD_U585AI"
+Disco.menu.pnum.B_U585I_IOT02A.node="NOD_U585AI,DIS_U585AI"
 Disco.menu.pnum.B_U585I_IOT02A.upload.maximum_size=2097152
 Disco.menu.pnum.B_U585I_IOT02A.upload.maximum_data_size=262144
 Disco.menu.pnum.B_U585I_IOT02A.build.mcu=cortex-m33
@@ -7099,6 +7113,38 @@ GenH7.menu.pnum.WeActMiniH750VBTX.build.product_line=STM32H750xx
 GenH7.menu.pnum.WeActMiniH750VBTX.build.variant=STM32H7xx/H742V(G-I)(H-T)_H743V(G-I)(H-T)_H750VBT_H753VI(H-T)
 GenH7.menu.pnum.WeActMiniH750VBTX.build.variant_h=variant_WeActMiniH7xx.h
 GenH7.menu.pnum.WeActMiniH750VBTX.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
+
+# Generic H723ZETx
+GenH7.menu.pnum.GENERIC_H723ZETX=Generic H723ZETx
+GenH7.menu.pnum.GENERIC_H723ZETX.upload.maximum_size=524288
+GenH7.menu.pnum.GENERIC_H723ZETX.upload.maximum_data_size=327680
+GenH7.menu.pnum.GENERIC_H723ZETX.build.board=GENERIC_H723ZETX
+GenH7.menu.pnum.GENERIC_H723ZETX.build.product_line=STM32H723xx
+GenH7.menu.pnum.GENERIC_H723ZETX.build.variant=STM32H7xx/H723Z(E-G)T_H730ZBT_H733ZGT
+
+# Generic H723ZGTx
+GenH7.menu.pnum.GENERIC_H723ZGTX=Generic H723ZGTx
+GenH7.menu.pnum.GENERIC_H723ZGTX.upload.maximum_size=1048576
+GenH7.menu.pnum.GENERIC_H723ZGTX.upload.maximum_data_size=327680
+GenH7.menu.pnum.GENERIC_H723ZGTX.build.board=GENERIC_H723ZGTX
+GenH7.menu.pnum.GENERIC_H723ZGTX.build.product_line=STM32H723xx
+GenH7.menu.pnum.GENERIC_H723ZGTX.build.variant=STM32H7xx/H723Z(E-G)T_H730ZBT_H733ZGT
+
+# Generic H730ZBTx
+GenH7.menu.pnum.GENERIC_H730ZBTX=Generic H730ZBTx
+GenH7.menu.pnum.GENERIC_H730ZBTX.upload.maximum_size=131072
+GenH7.menu.pnum.GENERIC_H730ZBTX.upload.maximum_data_size=327680
+GenH7.menu.pnum.GENERIC_H730ZBTX.build.board=GENERIC_H730ZBTX
+GenH7.menu.pnum.GENERIC_H730ZBTX.build.product_line=STM32H730xx
+GenH7.menu.pnum.GENERIC_H730ZBTX.build.variant=STM32H7xx/H723Z(E-G)T_H730ZBT_H733ZGT
+
+# Generic H733ZGTx
+GenH7.menu.pnum.GENERIC_H733ZGTX=Generic H733ZGTx
+GenH7.menu.pnum.GENERIC_H733ZGTX.upload.maximum_size=1048576
+GenH7.menu.pnum.GENERIC_H733ZGTX.upload.maximum_data_size=327680
+GenH7.menu.pnum.GENERIC_H733ZGTX.build.board=GENERIC_H733ZGTX
+GenH7.menu.pnum.GENERIC_H733ZGTX.build.product_line=STM32H733xx
+GenH7.menu.pnum.GENERIC_H733ZGTX.build.variant=STM32H7xx/H723Z(E-G)T_H730ZBT_H733ZGT
 
 # Generic H742IGKx
 GenH7.menu.pnum.GENERIC_H742IGKX=Generic H742IGKx
