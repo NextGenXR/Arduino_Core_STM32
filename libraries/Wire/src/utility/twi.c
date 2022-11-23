@@ -1199,7 +1199,7 @@ void I2C1_ER_IRQHandler(void)
 * @param  None
 * @retval None
 */
-void I2C2_EV_IRQHandler(void)
+void _I2C2_EV_IRQHandler(void)
 {
 #if defined(I2C3_BASE) && defined(STM32G0xx)
   /* I2C2_3_IRQHandler */
@@ -1228,7 +1228,7 @@ void I2C2_EV_IRQHandler(void)
 * @param  None
 * @retval None
 */
-void I2C2_ER_IRQHandler(void)
+void _I2C2_ER_IRQHandler(void)
 {
   I2C_HandleTypeDef *handle = i2c_handles[I2C2_INDEX];
   HAL_I2C_ER_IRQHandler(handle);
@@ -1242,7 +1242,7 @@ void I2C2_ER_IRQHandler(void)
 * @param  None
 * @retval None
 */
-void I2C3_EV_IRQHandler(void)
+void _I2C3_EV_IRQHandler(void)
 {
   I2C_HandleTypeDef *handle = i2c_handles[I2C3_INDEX];
   HAL_I2C_EV_IRQHandler(handle);
@@ -1257,7 +1257,7 @@ void I2C3_EV_IRQHandler(void)
 * @param  None
 * @retval None
 */
-void I2C3_ER_IRQHandler(void)
+void _I2C3_ER_IRQHandler(void)
 {
   I2C_HandleTypeDef *handle = i2c_handles[I2C3_INDEX];
   HAL_I2C_ER_IRQHandler(handle);
@@ -1271,7 +1271,7 @@ void I2C3_ER_IRQHandler(void)
 * @param  None
 * @retval None
 */
-void I2C4_EV_IRQHandler(void)
+void _I2C4_EV_IRQHandler(void)
 {
   I2C_HandleTypeDef *handle = i2c_handles[I2C4_INDEX];
   HAL_I2C_EV_IRQHandler(handle);
@@ -1283,7 +1283,7 @@ void I2C4_EV_IRQHandler(void)
 * @param  None
 * @retval None
 */
-void I2C4_ER_IRQHandler(void)
+void _I2C4_ER_IRQHandler(void)
 {
   I2C_HandleTypeDef *handle = i2c_handles[I2C4_INDEX];
   HAL_I2C_ER_IRQHandler(handle);
