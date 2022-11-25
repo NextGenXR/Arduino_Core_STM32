@@ -29,6 +29,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdbool.h>
   #ifndef abs
     #define abs(x) ((x)>0?(x):-(x))
   #endif // abs
@@ -108,7 +109,7 @@ enum BitOrder {
 
 typedef unsigned int word;
 
-typedef bool boolean __attribute__((deprecated));
+typedef bool boolean; // __attribute__((deprecated));
 
 typedef uint8_t byte ;
 
