@@ -12,6 +12,10 @@
  */
 #pragma once
 
+#if defined(ARDUINO_GENERIC_F765ZGTX) || defined(ARDUINO_GENERIC_F765ZITX) ||\
+    defined(ARDUINO_GENERIC_F767ZGTX) || defined(ARDUINO_GENERIC_F767ZITX) ||\
+    defined(ARDUINO_GENERIC_F777ZITX)
+
 /*----------------------------------------------------------------------------
  *        STM32 pins number
  *----------------------------------------------------------------------------*/
@@ -291,3 +295,5 @@
     #define SERIAL_PORT_HARDWARE  Serial
   #endif
 #endif
+
+#endif /* MCU Type */
