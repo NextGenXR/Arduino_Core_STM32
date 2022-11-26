@@ -28,13 +28,16 @@
  *******************************************************************************
  */
 
-#ifndef _PERIPHERALPINS_H
-#define _PERIPHERALPINS_H
+#ifndef _ARDUINO_PERIPHERALPINS_H
+#define _ARDUINO_PERIPHERALPINS_H
 
 #include "pinmap.h"
+#include "ArduinoDPins.h"
 #ifdef STM32F1xx
   #include "PinAF_STM32F1.h"
 #endif
+
+extern const DataPin DPin_Map[];
 
 //*** ADC ***
 extern const PinMap PinMap_ADC[];
