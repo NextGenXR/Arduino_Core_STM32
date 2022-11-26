@@ -16,6 +16,8 @@
 
 #ifndef ARDUINO
 #include <stm32duino.h>
+#include <stm32f7xx_hal.h>
+#include <stm32duino.h>
 #endif
 
 #define WRITE_COMMAND      0x3A
