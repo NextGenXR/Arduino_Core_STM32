@@ -11,27 +11,27 @@
 
 #ifdef STM32F4xx
   #include "stm32f4xx_hal_lptim.h"
-#elif STM32F7xx
+#elif defined (STM32F7xx)
   #include "stm32f7xx_hal_lptim.h"
-#elif STM32G0xx
+#elif defined (STM32G0xx)
   #include "stm32g0xx_hal_lptim.h"
-#elif STM32G4xx
+#elif defined (STM32G4xx)
   #include "stm32g4xx_hal_lptim.h"
-#elif STM32H7xx
+#elif defined (STM32H7xx)
   #include "stm32h7xx_hal_lptim.h"
-#elif STM32L0xx
+#elif defined (STM32L0xx)
   #include "stm32l0xx_hal_lptim.h"
-#elif STM32L4xx
+#elif defined (STM32L4xx)
   #include "stm32l4xx_hal_lptim.h"
-#elif STM32L5xx
+#elif defined (STM32L5xx)
   #include "stm32l5xx_hal_lptim.h"
-#elif STM32MP1xx
+#elif defined (STM32MP1xx)
   #include "stm32mp1xx_hal_lptim.h"
-#elif STM32U5xx
+#elif defined (STM32U5xx)
   #include "stm32u5xx_hal_lptim.h"
-#elif STM32WBxx
+#elif defined (STM32WBxx)
   #include "stm32wbxx_hal_lptim.h"
-#elif STM32WLxx
+#elif defined (STM32WLxx)
   #include "stm32wlxx_hal_lptim.h"
 #endif
 #pragma GCC diagnostic pop
