@@ -20,6 +20,8 @@ typedef struct DataPin {
 
 typedef DataPin DPin_t;
 
+DPin_t GetPinPort(uint8_t DPin);
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
