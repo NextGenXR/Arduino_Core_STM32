@@ -21,6 +21,8 @@
 #ifndef __BACKUP_H
 #define __BACKUP_H
 
+#define USE_BACKUP
+
 #ifdef USE_BACKUP
 
 /* Includes ------------------------------------------------------------------*/
@@ -41,6 +43,10 @@
 
 #ifdef HAL_RCC_MODULE_ENABLED
 #define HAL_RCC_MODULE_ENABLED
+#endif
+
+#ifndef RTC
+#define RTC
 #endif
 
 #include <stm32yyxx_ll_rtc.h>
