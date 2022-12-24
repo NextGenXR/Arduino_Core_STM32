@@ -1,0 +1,15 @@
+/*
+ * WProgram.h
+ *
+ *  Created on: Dec 24, 2022
+ *      Author: joconnor
+ */
+
+#ifndef BSP_ARDUINO_CORE_STM32_CORES_ARDUINO_WPROGRAM_H_
+#define BSP_ARDUINO_CORE_STM32_CORES_ARDUINO_WPROGRAM_H_
+
+
+
+
+
+#endif /* BSP_ARDUINO_CORE_STM32_CORES_ARDUINO_WPROGRAM_H_ */
