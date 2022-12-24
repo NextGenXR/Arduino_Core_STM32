@@ -61,6 +61,7 @@ class Stream : public Print {
 
     Stream()
     {
+    	_startMillis = 0;
       _timeout = 1000;
     }
 
