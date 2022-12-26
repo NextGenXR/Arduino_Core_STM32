@@ -49,12 +49,8 @@
 #define RTC
 #endif
 
-#include <stm32yyxx_ll_rtc.h>
+#include <stm32f7xx_ll_rtc.h>
 #include <stm32yyxx_hal_rcc.h>
-
-#if __has_include(<stm32f7xx_hal_rcc_ex.h>)
- #include <stm32f7xx_hal_rcc_ex.h>
-#endif
 
 #ifdef __cplusplus
 extern "C" {
