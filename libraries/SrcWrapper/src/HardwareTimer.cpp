@@ -37,6 +37,7 @@
 #include <stm32yyxx_ll_tim.h>
 
 #include <timer.h>
+#include <portmacro.h>
 #include "HardwareTimer.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED) && !defined(HAL_TIM_MODULE_ONLY)
