@@ -1,5 +1,5 @@
-#ifndef _STM32YYXX_hal_RTC_H_
-#define _STM32YYXX_hal_RTC_H_
+#ifndef _STM32YYXX_LL_RTC_H_
+#define _STM32YYXX_LL_RTC_H_
 /* LL raised several warnings, ignore them */
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
