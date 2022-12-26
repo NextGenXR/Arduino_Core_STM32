@@ -1,3 +1,5 @@
+#ifndef VARIANT_NUCLEO_F767ZI_H
+#define VARIANT_NUCLEO_F767ZI_H
 /*
  *******************************************************************************
  * Copyright (c) 2020-2021, STMicroelectronics
@@ -10,11 +12,12 @@
  *
  *******************************************************************************
 */
-#pragma once
 
 /*----------------------------------------------------------------------------
  *        Pins
  *----------------------------------------------------------------------------*/
+
+#include "ArduinoDPins.h"
 
 #define PG9                     0
 #define PG14                    1
@@ -274,3 +277,5 @@
     #define SERIAL_PORT_HARDWARE    Serial
   #endif
 #endif
+
+#endif // VARIANT_NUCLEO_F767ZI_H
