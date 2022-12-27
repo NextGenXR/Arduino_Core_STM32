@@ -3,6 +3,7 @@
 
 #if __has_include(<main.h>)
 #include <main.h>
+#include <Defines.h>
 #endif
 
 #if __has_include(<stm32yyxx_hal_def.h>)
@@ -66,22 +67,22 @@
 #elif defined(STM32WLxx)
   #include "stm32wlxx.h"
 #else
-  //#error "STM32YYxx chip series is not defined in boards.txt."
+//#error "STM32YYxx chip series is not defined in boards.txt."
 #endif
 
 #ifndef F_CPU
-  #define F_CPU SystemCoreClock
+#define F_CPU SystemCoreClock
 #endif
 
 /* Here define some compatibility */
 #ifndef ADC1
-  #define ADC1 ADC
+#define ADC1 ADC
 #endif
 #ifndef CAN1
-  #define CAN1 CAN
+#define CAN1 CAN
 #endif
 #ifndef DAC1
-  #define DAC1 DAC
+#define DAC1 DAC
 #endif
 
 #ifdef USB_OTG_FS
@@ -117,11 +118,12 @@
  * Libc porting layers
  */
 #if defined (  __GNUC__  ) /* GCC CS3 */
-  #define WEAK __attribute__ ((weak))
+#define WEAK __attribute__ ((weak))
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif /* __cplusplus */
 
 /* weaked functions declaration */
@@ -139,13 +141,12 @@ void SystemClock_Config(void);
   }
 #endif
 #else
-void _Error_Handler(const char *, int);
+void _Error_Handler(const char*, int);
 
 #ifdef ARDUINO
 #define Error_Handler() _Error_Handler(__FILE__, __LINE__)
 #endif
 #endif
-
 
 #ifdef __cplusplus
 } /* extern "C" */
