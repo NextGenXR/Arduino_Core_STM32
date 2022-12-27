@@ -202,6 +202,11 @@
   #define USER_BTN              PC13
 #endif
 
+#ifndef USER_BUTTON_PIN
+//#define USER_BUTTON_PIN 13
+//#define USER_BUTTON_PORT GPIOC
+#endif
+
 // Timer Definitions
 // Use TIM6/TIM7 when possible as servo and tone don't need GPIO output pin
 #ifndef TIMER_TONE
