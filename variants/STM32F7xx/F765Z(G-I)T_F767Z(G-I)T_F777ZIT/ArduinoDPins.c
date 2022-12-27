@@ -83,8 +83,73 @@ const DataPin DPin_Map[] = {
 		{((GPIO_TypeDef *) GPIOF_BASE), GPIO_PIN_0},		/* 68 */
 		{((GPIO_TypeDef *) GPIOF_BASE), GPIO_PIN_1},		/* 69 */
 		{((GPIO_TypeDef *) GPIOF_BASE), GPIO_PIN_2},		/* 70 */
-
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_7},	/* 71 */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 72 is a NC */
+		{((GPIO_TypeDef *) GPIOB_BASE), GPIO_PIN_7},		/* 73 */
+		{((GPIO_TypeDef *) GPIOB_BASE), GPIO_PIN_14},	/* 74 */
+		{((GPIO_TypeDef *) GPIOC_BASE), GPIO_PIN_13},	/* 75 */
+		{((GPIO_TypeDef *) GPIOD_BASE), GPIO_PIN_9},	/* 76 */
+		{((GPIO_TypeDef *) GPIOD_BASE), GPIO_PIN_8},	/* 77 */
+		{((GPIO_TypeDef *) GPIOF_BASE), GPIO_PIN_0},		/* 78 */
+		{((GPIO_TypeDef *) GPIOF_BASE), GPIO_PIN_1},		/* 79 */
+		{((GPIO_TypeDef *) GPIOF_BASE), GPIO_PIN_2},		/* 80 */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 81? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 82? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 83? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 84? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 85? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 86? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 87? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 88? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 89? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_8},	/* 90 */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_9},	/* 91 */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_10},	/* 92 */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_11},	/* 93 */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_12},	/* 94 */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_13},	/* 95 SWD */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_14},	/* 96 SWD */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 97? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 98? */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_0},	/* 99? */
+		{((GPIO_TypeDef *) GPIOC_BASE), GPIO_PIN_14},	/* 100 */
+		{((GPIO_TypeDef *) GPIOC_BASE), GPIO_PIN_15},	/* 101 */
+		{((GPIO_TypeDef *) GPIOD_BASE), GPIO_PIN_10},	/* 102 */
+		{((GPIO_TypeDef *) GPIOF_BASE), GPIO_PIN_11},	/* 103 */
+		{((GPIO_TypeDef *) GPIOG_BASE), GPIO_PIN_4},	/* 104 */
+		{((GPIO_TypeDef *) GPIOA_BASE), GPIO_PIN_13},	/* 105 */
+		{((GPIO_TypeDef *) GPIOG_BASE), GPIO_PIN_5},	/* 106 */
+		{((GPIO_TypeDef *) GPIOG_BASE), GPIO_PIN_6},	/* 107 */
+		{((GPIO_TypeDef *) GPIOG_BASE), GPIO_PIN_7},	/* 108 */
+		{((GPIO_TypeDef *) GPIOG_BASE), GPIO_PIN_8},	/* 109 */
+		{((GPIO_TypeDef *) GPIOG_BASE), GPIO_PIN_10},	/* 110 */
+		{((GPIO_TypeDef *) GPIOG_BASE), GPIO_PIN_11},	/* 111 */
+		{((GPIO_TypeDef *) GPIOG_BASE), GPIO_PIN_12},	/* 112 */
+		{((GPIO_TypeDef *) GPIOG_BASE), GPIO_PIN_13},	/* 113 */
+		{((GPIO_TypeDef *) GPIOG_BASE), GPIO_PIN_15},	/* 114 */
+		{((GPIO_TypeDef *) GPIOH_BASE), GPIO_PIN_0},	/* 115 */
+		{((GPIO_TypeDef *) GPIOH_BASE), GPIO_PIN_1},	/* 116 */
 };
+
+/*
+#define PA3                     PIN_A0
+#define PC0                     PIN_A1
+#define PC3                     PIN_A2
+#define PF3                     PIN_A3
+#define PF5                     PIN_A4
+#define PF10                    PIN_A5
+#define PB1                     PIN_A6
+#define PC2                     PIN_A7
+#define PF4                     PIN_A8
+#define PF6                     PIN_A9
+#define PA1                     PIN_A18
+#define PA2                     PIN_A19
+
+#define PC1                     PIN_A20
+#define PC4                     PIN_A21
+#define PC5                     PIN_A22
+ */
+
 
 DPin_t GetPinPort(uint8_t DPin)
 {
