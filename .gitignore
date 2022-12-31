@@ -40,3 +40,4 @@ __pycache__/
 package_version.txt
 system/Middlewares/OpenAMP/libmetal/out
 system/Middlewares/OpenAMP/open-amp/out
+/Debug/
