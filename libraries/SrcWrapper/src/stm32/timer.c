@@ -15,7 +15,7 @@
 #include "timer.h"
 #include "board.h"
 
-#include <stm32duino.h>
+#include "../../../../../STM32F7xx_Nucleo_144/Utility/stm32duino.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -15,9 +15,9 @@
 #include <wiring_digital.h>
 
 #ifndef ARDUINO
-#include <stm32duino.h>
+#include "../../../../STM32F7xx_Nucleo_144/Utility/stm32duino.h"
 #include <stm32f7xx_hal.h>
-#include <stm32duino.h>
+#include "../../../../STM32F7xx_Nucleo_144/Utility/stm32duino.h"
 #endif
 
 #define WRITE_COMMAND      0x3A

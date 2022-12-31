@@ -35,7 +35,7 @@
 #endif
 
 #if __has_include(<stm32duino.h>)
-#include <stm32duino.h>
+#include "../../../STM32F7xx_Nucleo_144/Utility/stm32duino.h"
 #endif
 
 #include "wiring.h"
