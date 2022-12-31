@@ -3,7 +3,7 @@
 
 #include "variant.h"
 
- #if __has_include("..\..\Core\Inc\stm32f7xx_hal_conf.h")
+#if __has_include("..\..\Core\Inc\stm32f7xx_hal_conf.h")
  #include "..\..\Core\Inc\stm32f7xx_hal_conf.h"
  #else
 
@@ -15,7 +15,9 @@
  #include "hal_conf_extra.h"
 #endif
 
-#include "stm32f7xx_hal_conf_default.h"
+#if __has_include("stm32f7xx_hal_conf_default.h")
+	#include "stm32f7xx_hal_conf_default.h"
+	#endif
 
 #endif
 
