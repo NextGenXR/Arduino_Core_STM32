@@ -500,3 +500,5 @@ void assert_failed(uint8_t *file, uint32_t line);
 }#endif
 
 #endif /* __STM32F7xx_HAL_CONF_DEFAULT_H */
+
+#endif // Header
