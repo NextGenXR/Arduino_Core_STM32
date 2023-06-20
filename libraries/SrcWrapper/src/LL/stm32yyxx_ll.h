@@ -4,6 +4,9 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#ifdef __cplusplus
+  #pragma GCC diagnostic ignored "-Wregister"
+#endif
 
 /* Include Low Layers drivers */
 #include "stm32yyxx_ll_adc.h"
@@ -30,6 +33,7 @@
 #include "stm32yyxx_ll_hrtim.h"
 #include "stm32yyxx_ll_hsem.h"
 #include "stm32yyxx_ll_i2c.h"
+#include "stm32yyxx_ll_i3c.h"
 #include "stm32yyxx_ll_icache.h"
 #include "stm32yyxx_ll_ipcc.h"
 #include "stm32yyxx_ll_iwdg.h"

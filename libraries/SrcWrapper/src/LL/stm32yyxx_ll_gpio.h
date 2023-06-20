@@ -4,7 +4,13 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#ifdef __cplusplus
+  #pragma GCC diagnostic ignored "-Wregister"
+#endif
 
+#ifdef STM32C0xx
+  #include "stm32c0xx_ll_gpio.h"
+#elif STM32F0xx
 #if __has_include(<main.h>)
 #include <main.h>
 #endif
@@ -25,7 +31,9 @@
   #include "stm32g0xx_ll_gpio.h"
 #elif defined(STM32G4xx)
   #include "stm32g4xx_ll_gpio.h"
-#elif defined(STM32H7xx)
+#elif STM32H5xx
+  #include "stm32h5xx_ll_gpio.h"
+#elif STM32H7xx
   #include "stm32h7xx_ll_gpio.h"
 #elif defined(STM32L0xx)
   #include "stm32l0xx_ll_gpio.h"

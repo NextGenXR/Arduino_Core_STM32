@@ -4,6 +4,9 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#ifdef __cplusplus
+  #pragma GCC diagnostic ignored "-Wregister"
+#endif
 
 #ifdef STM32F1xx
   #include "stm32f1xx_ll_sdmmc.h"
@@ -13,6 +16,8 @@
   #include "stm32f4xx_ll_sdmmc.h"
 #elif STM32F7xx
   #include "stm32f7xx_ll_sdmmc.h"
+#elif STM32H5xx
+  #include "stm32h5xx_ll_sdmmc.h"
 #elif STM32H7xx
   #include "stm32h7xx_ll_sdmmc.h"
 #elif STM32L1xx
