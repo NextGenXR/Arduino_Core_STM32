@@ -61,7 +61,10 @@ mcu_family = ""
 mcu_refname = ""
 mcu_flash = []
 mcu_ram = []
-legacy_hal = {"CAN": ["F0", "F1", "F2", "F3", "F4", "F7", "L4"], "ETH": ["F4", "F7", "H7"]}
+legacy_hal = {
+    "CAN": ["F0", "F1", "F2", "F3", "F4", "F7", "L4"],
+    "ETH": ["F4", "F7", "H7"],
+}
 # Cube information
 product_line_dict = {}
 
@@ -149,7 +152,7 @@ def parse_mcu_file():
     global mcu_refname
 
     tim_regex = r"^(TIM\d+)$"
-    usb_regex = r"^(USB(?!PD|_HOST|_DEVICE).*)$"
+    usb_regex = r"^(USB(?!PD|_HOST|_DEVICE|X).*)$"
     gpiofile = ""
     del tim_inst_list[:]
     del mcu_ram[:]
@@ -2060,7 +2063,7 @@ def aggregate_dir():
         # Get all mcu_dir
         mcu_dirs = sorted(mcu_family.glob("*/"))
         # Get original directory list of current serie STM32YYxx
-        mcu_out_dirs_ori = sorted(out_family_path.glob("*/"))
+        mcu_out_dirs_ori = sorted(out_family_path.glob("*/**"))
         mcu_out_dirs_up = []
         # Group mcu directories when only expressions and xml file name are different
         while mcu_dirs:
@@ -2452,7 +2455,7 @@ for mcu_file in mcu_list:
     xml_mcu = parse(str(mcu_file))
     parse_mcu_file()
     # Generate only for one family
-    if filtered_family and filtered_family not in mcu_family:
+    if filtered_family and filtered_family not in mcu_family or "MP13" in mcu_refname:
         xml_mcu.unlink()
         continue
 

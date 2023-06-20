@@ -40,7 +40,7 @@ find_program(DOT "dot")
 include("${CMAKE_CURRENT_LIST_DIR}/ensure_core_deps.cmake")
 ensure_core_deps()
 
-# Setting Linux is forcing th extension to be .o instead of .obj when building on WIndows.
+# Setting Linux is forcing the extension to be .o instead of .obj when building on Windows.
 # It is important because armlink is failing when files have .obj extensions (error with
 # scatter file section not found)
 SET(CMAKE_SYSTEM_NAME Linux)
@@ -49,8 +49,8 @@ SET(CMAKE_SYSTEM_PROCESSOR arm)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY) # don't try to link when testing the compiler, it won't work anyway
 set(BUILD_SHARED_LIBS false CACHE STRING "")
 
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_STANDARD 17)
 
 set(CMAKE_EXECUTABLE_SUFFIX .elf)
 # These override CMAKE_EXECUTABLE_SUFFIX -- prevent any CMake built-in from overriding the value we want
