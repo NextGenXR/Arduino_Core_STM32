@@ -31,7 +31,9 @@
   #include "stm32g0xx_ll_tim.h"
 #elif defined (STM32G4xx)
   #include "stm32g4xx_ll_tim.h"
-#elif defined (STM32H7xx)
+#elif STM32H5xx
+  #include "stm32h5xx_ll_tim.h"
+#elif STM32H7xx
   #include "stm32h7xx_ll_tim.h"
 #elif defined (STM32L0xx)
   #include "stm32l0xx_ll_tim.h"

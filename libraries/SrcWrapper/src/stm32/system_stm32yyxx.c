@@ -25,7 +25,9 @@
   #include "system_stm32g0xx.c"
 #elif defined(STM32G4xx)
   #include "system_stm32g4xx.c"
-#elif defined(STM32H7xx)
+#elif STM32H5xx
+  #include "system_stm32h5xx.c"
+#elif STM32H7xx
   #include "system_stm32h7xx.c"
 #elif defined(STM32L0xx)
   #include "system_stm32l0xx.c"
