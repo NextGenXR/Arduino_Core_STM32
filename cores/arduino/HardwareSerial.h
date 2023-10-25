@@ -129,11 +129,11 @@ class HardwareSerial : public Stream {
     }
     void begin(unsigned long, uint8_t);
     void end();
-    int available(void) override;
-    int peek(void) override;
-    int read(void) override;
-    int availableForWrite(void) override;
-    void flush(void) override;
+    virtual int available(void);
+    virtual int peek(void);
+    virtual int read(void);
+    int availableForWrite(void);
+    virtual void flush(uint32_t timeout = 0);
     virtual size_t write(uint8_t);
     inline size_t write(unsigned long n)
     {

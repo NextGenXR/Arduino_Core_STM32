@@ -79,6 +79,7 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
  - [Electronic Speed Controller boards](#electronic-speed-controller-boards)
  - [Garatronic/McHobby boards](#garatronicmchobby-boards)
  - [Generic flight controllers](#generic-flight-controllers)
+ - [IoT continuum boards](#iot-continuum-boards)
  - [LoRa boards](#lora-boards)
  - [Midatronics boards](#midatronics-boards)
  - [SparkFun boards](#sparkfun-boards)
@@ -99,6 +100,7 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
 | :green_heart:  | STM32H563ZI | [Nucleo H563ZI](https://www.st.com/en/evaluation-tools/nucleo-h563zi.html) | *2.6.0* |  |
 | :green_heart:  | STM32H723ZG | [Nucleo H723ZG](https://www.st.com/en/evaluation-tools/nucleo-h723zg.html) | *2.4.0* |  |
 | :green_heart:  | STM32H743ZI | [Nucleo H743ZI(2)](https://www.st.com/en/evaluation-tools/nucleo-h743zi.html) | *1.5.0* | Nucleo H743ZI2 since 1.6.0 |
+| :yellow_heart:  | STM32H753ZI | [Nucleo H753ZI](https://www.st.com/en/evaluation-tools/nucleo-h753zi.html) | **2.7.0** |  |
 | :green_heart:  | STM32L496ZG | [Nucleo L496ZG](http://www.st.com/en/evaluation-tools/nucleo-l496zg.html) | *1.3.0* |  |
 | :green_heart:  | STM32L496ZG-P | [Nucleo L496ZG-P](http://www.st.com/en/evaluation-tools/nucleo-l496zg-p.html) | *1.3.0* |  |
 | :green_heart:  | STM32L4R5ZI | [Nucleo L4R5ZI](http://www.st.com/en/evaluation-tools/nucleo-l4r5zi.html) | *1.4.0* |  |
@@ -692,8 +694,12 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
 
 | Status | Device(s) | Name | Release | Notes |
 | :----: | :-------: | ---- | :-----: | :---- |
-| :green_heart:  | STM32U575AGIxQ<br>STM32U575AIIxQ<br>STM32U585AIIxQ | Generic Board | *2.1.0* |  |
-| :green_heart:  | STM32U575ZGTxQ<br>STM32U575ZITxQ<br>STM32U585ZITxQ | Generic Board | *2.1.0* |  |
+| :green_heart:  | STM32U575AGIxQ<br>STM32U575AIIxQ | Generic Board | *2.1.0* |  |
+| :yellow_heart:  | STM32U575CGx<br>STM32U575CIx | Generic Board | **2.7.0** |  |
+| :green_heart:  | STM32U575ZGTxQ<br>STM32U575ZITxQ | Generic Board | *2.1.0* |  |
+| :green_heart:  | STM32U585AIIxQ | Generic Board | *2.1.0* |  |
+| :yellow_heart:  | STM32U585CIx | Generic Board | **2.7.0** |  |
+| :green_heart:  | STM32U585ZITxQ | Generic Board | *2.1.0* |  |
 
 ### Generic STM32WB boards
 
@@ -769,6 +775,12 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
 | :green_heart:  | STM32F103CB | Afro Flight Rev5 (8/12MHz) | *1.7.0* |  |
 | :green_heart:  | STM32F303CC | [Sparky V1](https://github.com/TauLabs/TauLabs/wiki/Sparky) | *1.6.0* |  |
 
+### [IoT continuum](https://iotjourney.orange.com/fr-FR) boards
+
+| Status | Device(s) | Name | Release | Notes |
+| :----: | :-------: | ---- | :-----: | :---- |
+| :yellow_heart: | STM32U585CIU6 | [IoT continuum DevKit Board - STM32U585CIU6](https://iotjourney.orange.com/en/iotcontinuum/kits) | **2.7.0** |  |
+
 ### LoRa boards
 
 | Status | Device(s) | Name | Release | Notes |
@@ -780,11 +792,11 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
 | :green_heart:  | STM32L151CB | [RAK811 LoRa Tracker](https://www.rakwireless.com/en/) | *1.4.0* | [Wiki](https://github.com/stm32duino/Arduino_Core_STM32/wiki/Connectivities#lora) |
 | :green_heart:  | STM32L051C8 | [RHF76-052](https://lora-alliance.org/lora_products/rhf76-052/) | *1.7.0* | Basic support |
 
-### [Midatronics](https://midatronics.com/) boards
+### Midatronics boards
 
 | Status | Device(s) | Name | Release | Notes |
 | :----: | :-------: | ---- | :-----: | :---- |
-| :green_heart:  | STM32WB55CE | [SharkyMKR](https://midatronics.com/shop/development-boards/mkr-sharky-i/) | *1.7.0* |  |
+| :green_heart:  | STM32WB55CE | SharkyMKR | *1.7.0* |  |
 
 ### [SparkFun](https://www.sparkfun.com/) boards
 
